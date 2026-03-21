@@ -1397,7 +1397,13 @@ body {
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 800;
   letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.legal-revised {
   margin-bottom: 40px;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
 }
 
 .legal-content h2 {
