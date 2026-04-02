@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll reveal – elementy se zobrazí při vstupu do viewportu
   const revealElements = document.querySelectorAll(
-    '.section-title, .section-subtitle, .service-card, .process-step, .comparison-table, .comparison-scenario, .comparison-cta-button, .comparison-cta, .showcase-card, .showcase-cta, .testimonial-card, .pricing-card, .pricing-note, .section-cta, .value-compare-panel, .contact-form'
+    '.section-title, .section-subtitle, .service-card, .process-step, .comparison-table, .comparison-scenario, .comparison-cta-button, .comparison-cta, .showcase-card, .showcase-cta, .testimonials-carousel, .pricing-card, .pricing-note, .section-cta, .value-compare-panel, .contact-form'
   );
 
   revealElements.forEach((el) => el.classList.add('reveal'));
@@ -100,6 +100,111 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   metricNumbers.forEach((el) => metricObserver.observe(el));
+
+  // Reference – horizontální karusel (desktop i mobil)
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  document.querySelectorAll('.testimonials-carousel').forEach((root) => {
+    const viewport = root.querySelector('.testimonials-carousel-viewport');
+    const slides = root.querySelectorAll('.testimonials-slide');
+    const prevBtn = root.querySelector('.testimonials-carousel-btn--prev');
+    const nextBtn = root.querySelector('.testimonials-carousel-btn--next');
+    const dotsWrap = root.querySelector('.testimonials-carousel-dots');
+
+    if (!viewport || !slides.length || !prevBtn || !nextBtn || !dotsWrap) return;
+
+    const dots = [];
+    let lastStepW = 0;
+
+    const stepWidth = () => viewport.clientWidth;
+
+    const smooth = () => !prefersReducedMotion.matches;
+
+    const currentIndex = () => {
+      const w = stepWidth();
+      if (w <= 0) return 0;
+      return Math.min(
+        slides.length - 1,
+        Math.max(0, Math.round(viewport.scrollLeft / w))
+      );
+    };
+
+    const goTo = (index, animate) => {
+      const w = stepWidth();
+      if (w <= 0) return;
+      const max = slides.length - 1;
+      const i = Math.max(0, Math.min(max, index));
+      const useSmooth = animate !== false && smooth();
+      viewport.scrollTo({ left: i * w, behavior: useSmooth ? 'smooth' : 'auto' });
+      lastStepW = w;
+    };
+
+    const syncUi = () => {
+      const i = currentIndex();
+      dots.forEach((dot, j) => dot.classList.toggle('is-active', j === i));
+      prevBtn.disabled = i <= 0;
+      nextBtn.disabled = i >= slides.length - 1;
+    };
+
+    slides.forEach((_, j) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'testimonials-carousel-dot';
+      dot.setAttribute('aria-label', `Zobrazit referenci ${j + 1} z ${slides.length}`);
+      dot.addEventListener('click', () => goTo(j));
+      dotsWrap.appendChild(dot);
+      dots.push(dot);
+    });
+
+    const updateSlideWidth = () => {
+      const w = stepWidth();
+      const prevW = lastStepW > 0 ? lastStepW : w;
+      const idx =
+        prevW > 0
+          ? Math.min(slides.length - 1, Math.max(0, Math.round(viewport.scrollLeft / prevW)))
+          : 0;
+      viewport.style.setProperty('--testimonials-slide-w', w > 0 ? `${w}px` : '100%');
+      lastStepW = w;
+      viewport.scrollTo({ left: idx * w, behavior: 'auto' });
+      syncUi();
+    };
+
+    let scrollPending;
+    viewport.addEventListener('scroll', () => {
+      if (scrollPending) return;
+      scrollPending = requestAnimationFrame(() => {
+        scrollPending = null;
+        syncUi();
+      });
+    });
+
+    prevBtn.addEventListener('click', () => goTo(currentIndex() - 1));
+    nextBtn.addEventListener('click', () => goTo(currentIndex() + 1));
+
+    viewport.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goTo(currentIndex() - 1);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        goTo(currentIndex() + 1);
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        goTo(0);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        goTo(slides.length - 1);
+      }
+    });
+
+    const ro = new ResizeObserver(() => updateSlideWidth());
+    ro.observe(viewport);
+
+    requestAnimationFrame(() => {
+      updateSlideWidth();
+      syncUi();
+    });
+  });
 
   // Aktivní sekce v navigaci – zvýrazní odkaz podle toho, kde uživatel scrolluje
   const sections = document.querySelectorAll('section[id]');
