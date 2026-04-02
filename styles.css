@@ -18,6 +18,9 @@
   --shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 12px 48px rgba(0, 109, 236, 0.12);
   --transition: 0.25s ease;
+  --header-h: 72px;
+  --hero-gap-under-nav: 10px;
+  --hero-section-pad-bottom: 20px;
 }
 
 *,
@@ -143,50 +146,6 @@ body {
   display: none;
 }
 
-.availability {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-radius: 100px;
-  background: var(--bg-alt);
-  color: var(--text-muted);
-  white-space: nowrap;
-}
-
-.availability--open {
-  background: rgba(34, 197, 94, 0.12);
-  color: #15803d;
-}
-
-.availability-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #22c55e;
-  animation: pulse-dot 2s ease-in-out infinite;
-}
-
-.availability--open .availability-dot {
-  background: #22c55e;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-
-.availability--closed {
-  background: rgba(239, 68, 68, 0.12);
-  color: #b91c1c;
-}
-
-.availability--closed .availability-dot {
-  background: #ef4444;
-}
-
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -254,91 +213,192 @@ body {
   transform: none;
 }
 
-/* ========== Hero ========== */
+/* ========== Hero (jeden panel: fotka + gradient + text jako u Redesigner) ========== */
 .hero {
   position: relative;
-  min-height: 100vh;
   display: flex;
-  align-items: center;
-  padding: 120px 0 80px;
+  align-items: flex-start;
+  justify-content: stretch;
+  padding: calc(var(--header-h) + var(--hero-gap-under-nav)) 0 var(--hero-section-pad-bottom);
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  box-sizing: border-box;
   overflow: hidden;
+  background: var(--bg);
 }
 
-.hero-bg {
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.hero-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  max-height: calc(
+    100vh - var(--header-h) - var(--hero-gap-under-nav) - var(--hero-section-pad-bottom)
+  );
+  max-height: calc(
+    100dvh - var(--header-h) - var(--hero-gap-under-nav) - var(--hero-section-pad-bottom)
+  );
+  min-height: 0;
+  box-shadow:
+    var(--shadow-lg),
+    0 28px 80px rgba(0, 109, 236, 0.2);
+  border: 1px solid rgba(0, 109, 236, 0.12);
+}
+
+.hero-panel-media {
   position: absolute;
   inset: 0;
   z-index: 0;
-}
-
-.hero-gradient {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, var(--primary-soft) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(0, 109, 236, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 30% at 0% 80%, rgba(0, 109, 236, 0.04) 0%, transparent 50%);
-}
-
-.hero-shapes {
-  position: absolute;
-  inset: 0;
   overflow: hidden;
 }
 
-.shape {
+.hero-panel-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* zarovnání blíž k hornímu okraji, aby se na širším displeji neřízla hlava */
+  object-position: 80% 12%;
+}
+
+.hero-panel-overlay {
   position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  opacity: 0.06;
-  animation: float 20s ease-in-out infinite;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 55%, rgba(0, 109, 236, 0.14) 100%),
+    linear-gradient(
+      90deg,
+      #003d8a 0%,
+      #004a9e 12%,
+      rgba(0, 91, 196, 0.97) 26%,
+      rgba(0, 109, 236, 0.88) 38%,
+      rgba(0, 109, 236, 0.52) 48%,
+      rgba(0, 109, 236, 0.2) 56%,
+      rgba(0, 109, 236, 0.06) 66%,
+      transparent 78%
+    );
 }
 
-.shape-1 {
-  width: 400px;
-  height: 400px;
-  top: -100px;
-  right: -100px;
-  animation-delay: 0s;
-}
-
-.shape-2 {
-  width: 300px;
-  height: 300px;
-  bottom: 20%;
-  left: -80px;
-  animation-delay: -7s;
-}
-
-.shape-3 {
-  width: 200px;
-  height: 200px;
-  top: 50%;
-  right: 10%;
-  animation-delay: -14s;
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -30px) scale(1.05); }
-  66% { transform: translate(-20px, 20px) scale(0.95); }
+@media (prefers-reduced-motion: reduce) {
+  .hero-panel-img {
+    transform: none;
+  }
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
-  max-width: 860px;
+  z-index: 2;
+  min-width: 0;
+  width: 100%;
+  max-width: min(680px, 78%);
+  padding-top: clamp(40px, 6vw, 76px);
+  padding-bottom: clamp(40px, 6vw, 76px);
+  padding-right: clamp(28px, 4vw, 56px);
+  padding-left: clamp(48px, 8vw, 112px);
+  overflow-wrap: break-word;
+  text-align: left;
 }
 
-.hero-badge {
-  display: inline-block;
-  padding: 8px 16px;
-  background: var(--primary-soft);
+@media (max-width: 960px) {
+  .hero-panel {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-panel-img {
+    object-position: 72% 15%;
+  }
+
+  .hero-panel-overlay {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 20%,
+      rgba(0, 109, 236, 0.18) 40%,
+      rgba(0, 109, 236, 0.65) 60%,
+      rgba(0, 91, 196, 0.92) 80%,
+      rgba(0, 61, 138, 0.98) 100%
+    );
+  }
+
+  .hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    padding-top: clamp(44px, 8vw, 64px);
+    padding-bottom: clamp(44px, 8vw, 64px);
+    padding-left: clamp(28px, 6vw, 40px);
+    padding-right: clamp(28px, 6vw, 40px);
+  }
+
+  .hero-title {
+    text-wrap: balance;
+  }
+
+  .hero-subtitle {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Typografie a tlačítka na modrém panelu */
+.hero-panel .hero-title {
+  color: #fff;
+}
+
+.hero-panel .hero-title .highlight {
+  color: #c5e0ff;
+}
+
+.hero-panel .hero-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-panel .hero-cta-micro {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.hero-panel .btn-primary {
+  background: #fff;
   color: var(--primary);
-  font-size: 0.875rem;
-  font-weight: 600;
-  border-radius: 100px;
-  margin-bottom: 24px;
-  animation: fadeInUp 0.4s ease forwards;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.hero-panel .btn-primary:hover {
+  background: #f0f6ff;
+  color: var(--primary-dark);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.14);
+}
+
+.hero-panel .btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.88);
+}
+
+.hero-panel .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+  color: #fff;
 }
 
 /* Hero title = LCP element – rychlejší animace (0.4s) pro lepší LCP */
@@ -372,6 +432,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  justify-content: flex-start;
 }
 
 .hero-cta-micro {
@@ -542,6 +603,70 @@ body {
   .section-cta {
     margin-top: 40px;
   }
+}
+
+/* ========== O mně ========== */
+.about .section-title {
+  margin-bottom: 48px;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) 1fr;
+  gap: 40px 48px;
+  align-items: start;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.about-photo {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  background: var(--bg-alt);
+}
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.about-body {
+  max-width: 640px;
+  margin: 0;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 32px;
+  }
+
+  .about-photo {
+    max-width: 260px;
+    width: 100%;
+  }
+
+  .about-body {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
+
+.about-body p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin: 0 0 1.25em;
+}
+
+.about-body p:last-child {
+  margin-bottom: 0;
 }
 
 /* ========== Proč má kvalitní web smysl (porovnání) ========== */
@@ -1853,13 +1978,8 @@ body {
   }
 }
 
-/* ========== Mobilní menu ========== */
-@media (max-width: 768px) {
-  .availability {
-    padding: 5px 10px;
-    font-size: 0.7rem;
-  }
-
+/* ========== Mobilní menu (burger od 860px) ========== */
+@media (max-width: 860px) {
   .nav-toggle {
     display: flex;
   }
@@ -1885,10 +2005,17 @@ body {
     opacity: 1;
     visibility: visible;
   }
+}
 
+@media (max-width: 768px) {
   .hero {
-    min-height: auto;
-    padding: 100px 0 60px;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    --hero-gap-under-nav: 8px;
+    --hero-section-pad-bottom: 16px;
+    padding: calc(var(--header-h) + var(--hero-gap-under-nav)) 0 var(--hero-section-pad-bottom);
   }
 
   .hero-cta {

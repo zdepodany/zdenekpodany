@@ -129,10 +129,6 @@
     <nav class="nav container">
       <div class="nav-brand">
         <a href="/" class="logo">Zdeněk Podaný</a>
-        <span class="availability availability--open" title="Přijímám nové zakázky">
-          <span class="availability-dot"></span>
-          <span class="availability-text">Přijímám zakázky</span>
-        </span>
       </div>
       <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
         <span></span>
@@ -142,6 +138,7 @@
       <ul class="nav-links">
         <li><a href="#ukazky">Ukázky</a></li>
         <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#o-mne">O mně</a></li>
         <li><a href="#reference">Reference</a></li>
         <li><a href="#cenik">Ceník</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -153,28 +150,27 @@
   <main>
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-bg">
-        <div class="hero-gradient"></div>
-        <div class="hero-shapes">
-          <div class="shape shape-1"></div>
-          <div class="shape shape-2"></div>
-          <div class="shape shape-3"></div>
-        </div>
-      </div>
-      <div class="hero-content container">
-        <p class="hero-badge">Webdesigner pro malé firmy</p>
-        <h1 class="hero-title">
-          Webovky od někoho, kdo rozumí <span class="highlight">lidem</span>, ne jen kódu
-        </h1>
-        <p class="hero-subtitle">
-          Hezký web nestačí. Záleží na tom, co návštěvník udělá. Stavím weby tak, aby návštěvník udělal to, co potřebuješ — zavolal, napsal, přišel.
-        </p>
-        <div class="hero-cta-wrap">
-          <div class="hero-cta">
-            <a href="#kontakt" class="btn btn-primary">Chci cenovou nabídku</a>
-            <a href="#cenik" class="btn btn-secondary">Kolik to stojí?</a>
+      <div class="hero-inner container">
+        <div class="hero-panel">
+          <div class="hero-panel-media" aria-hidden="true">
+            <img class="hero-panel-img" src="/img/hero.webp" alt="" width="2678" height="2048" fetchpriority="high" decoding="async">
           </div>
-          <p class="hero-cta-micro">Bez závazků, odpovím do 24 hodin.</p>
+          <div class="hero-panel-overlay" aria-hidden="true"></div>
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Webovky od někoho, kdo rozumí <span class="highlight">lidem</span>, ne jen kódu
+            </h1>
+            <p class="hero-subtitle">
+              Hezký web nestačí. Záleží na tom, co návštěvník udělá. Stavím weby tak, aby návštěvník udělal to, co potřebuješ — zavolal, napsal, přišel.
+            </p>
+            <div class="hero-cta-wrap">
+              <div class="hero-cta">
+                <a href="#kontakt" class="btn btn-primary">Chci cenovou nabídku</a>
+                <a href="#cenik" class="btn btn-secondary">Kolik to stojí?</a>
+              </div>
+              <p class="hero-cta-micro">Bez závazků, odpovím do 24 hodin.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -324,6 +320,24 @@
         </div>
         <div class="section-cta">
           <a href="#kontakt" class="btn btn-primary">Chci začít</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- O mně -->
+    <section id="o-mne" class="section about" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 id="about-heading" class="section-title">Kdo pro Vás web postaví</h2>
+        <div class="about-layout">
+          <figure class="about-photo">
+            <img src="/img/zdenek.webp" alt="Zdeněk Podaný" width="1280" height="941" loading="lazy" decoding="async">
+          </figure>
+          <div class="about-body">
+            <p>Jmenuji se Zdeněk a weby tvořím od roku 2020 — nejdřív volnočasově, dnes naplno pro malé firmy a živnostníky z okolí Znojma a celé republiky.</p>
+            <p>K webdesignu jsem se dostal přirozeně — studoval jsem grafickou školu v Jihlavě a první roky jsem se živil jako UI/UX designer. Jenže projekty, kde bylo potřeba web nejen navrhnout, ale i postavit, přicházely čím dál častěji. Tak jsem začal stavět.</p>
+            <p>Na téhle práci mě baví jedna věc — každý web je jiný. Stejný proces, jiný výsledek. Každý klient má jiný byznys, jiné zákazníky, jiný příběh. A web musí odrážet právě tohle, ne šablonu staženou z internetu.</p>
+            <p>Proto každý web stavím od nuly — od prvního rozhovoru s klientem až po spuštění.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -481,6 +495,7 @@
               <li>Design na míru podle vašeho podnikání</li>
               <li>Web s až 6 podstránkami</li>
               <li>Kontaktní formulář</li>
+              <li>Nastavení custom emailu</li>
               <li>Hosting na 2 měsíce zdarma</li>
             </ul>
           </div>
@@ -498,7 +513,7 @@
         </div>
         <p class="pricing-note">Přesnou cenu vždy víte předem. Bez překvapení a skrytých poplatků.</p>
         <div class="section-cta">
-          <a href="#kontakt" class="btn btn-primary">Nezávazně poptat</a>
+          <a href="#kontakt" class="btn btn-primary">Získat cenovou nabídku</a>
         </div>
       </div>
     </section>

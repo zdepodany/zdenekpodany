@@ -29,10 +29,6 @@
     <nav class="nav container">
       <div class="nav-brand">
         <a href="/" class="logo">Zdeněk Podaný</a>
-        <span class="availability availability--open" title="Přijímám nové zakázky">
-          <span class="availability-dot"></span>
-          <span class="availability-text">Přijímám zakázky</span>
-        </span>
       </div>
       <button class="nav-toggle" aria-label="Otevřít menu" aria-expanded="false">
         <span></span>
@@ -53,28 +49,27 @@
   <main>
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-bg">
-        <div class="hero-gradient"></div>
-        <div class="hero-shapes">
-          <div class="shape shape-1"></div>
-          <div class="shape shape-2"></div>
-          <div class="shape shape-3"></div>
-        </div>
-      </div>
-      <div class="hero-content container">
-        <p class="hero-badge">Tvorba webů pro Znojmo a okolí</p>
-        <h1 class="hero-title">
-          Webovky od někoho, kdo rozumí <span class="highlight">lidem</span>, ne jen kódu
-        </h1>
-        <p class="hero-subtitle">
-          Hezký web nestačí. Záleží na tom, co návštěvník udělá. Stavím weby tak, aby návštěvník udělal to, co potřebuješ — zavolal, napsal, přišel.
-        </p>
-        <div class="hero-cta-wrap">
-          <div class="hero-cta">
-            <a href="#kontakt" class="btn btn-primary">Chci cenovou nabídku</a>
-            <a href="#cenik" class="btn btn-secondary">Kolik to stojí?</a>
+      <div class="hero-inner container">
+        <div class="hero-panel">
+          <div class="hero-panel-media" aria-hidden="true">
+            <img class="hero-panel-img" src="/img/hero.webp" alt="" width="2678" height="2048" fetchpriority="high" decoding="async">
           </div>
-          <p class="hero-cta-micro">Bez závazků, odpovím do 24 hodin.</p>
+          <div class="hero-panel-overlay" aria-hidden="true"></div>
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Webovky od někoho, kdo rozumí <span class="highlight">lidem</span>, ne jen kódu
+            </h1>
+            <p class="hero-subtitle">
+              Hezký web nestačí. Záleží na tom, co návštěvník udělá. Stavím weby tak, aby návštěvník udělal to, co potřebuješ — zavolal, napsal, přišel.
+            </p>
+            <div class="hero-cta-wrap">
+              <div class="hero-cta">
+                <a href="#kontakt" class="btn btn-primary">Chci cenovou nabídku</a>
+                <a href="#cenik" class="btn btn-secondary">Kolik to stojí?</a>
+              </div>
+              <p class="hero-cta-micro">Bez závazků, odpovím do 24 hodin.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -396,6 +391,7 @@
               <li>Design na míru podle vašeho podnikání</li>
               <li>Web s až 6 podstránkami</li>
               <li>Kontaktní formulář</li>
+              <li>Nastavení custom emailu</li>
               <li>Hosting na 2 měsíce zdarma</li>
             </ul>
           </div>
@@ -413,7 +409,7 @@
         </div>
         <p class="pricing-note">Přesnou cenu vždy víte předem. Bez překvapení a skrytých poplatků.</p>
         <div class="section-cta">
-          <a href="#kontakt" class="btn btn-primary">Nezávazně poptat</a>
+          <a href="#kontakt" class="btn btn-primary">Získat cenovou nabídku</a>
         </div>
       </div>
     </section>

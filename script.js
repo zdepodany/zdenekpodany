@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll reveal – elementy se zobrazí při vstupu do viewportu
   const revealElements = document.querySelectorAll(
-    '.section-title, .section-subtitle, .service-card, .process-step, .comparison-table, .comparison-scenario, .comparison-cta-button, .comparison-cta, .showcase-card, .showcase-cta, .testimonials-carousel, .pricing-card, .pricing-note, .section-cta, .value-compare-panel, .faq-item, .contact-form'
+    '.section-title, .section-subtitle, .service-card, .process-step, .about-layout, .comparison-table, .comparison-scenario, .comparison-cta-button, .comparison-cta, .showcase-card, .showcase-cta, .testimonials-carousel, .pricing-card, .pricing-note, .section-cta, .value-compare-panel, .faq-item, .contact-form'
   );
 
   revealElements.forEach((el) => el.classList.add('reveal'));
