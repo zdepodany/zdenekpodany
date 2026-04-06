@@ -2210,6 +2210,80 @@ body {
   color: var(--text-muted);
 }
 
+/* VOP – přehledná hlavička dokumentu */
+.legal-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow);
+}
+
+.legal-card-line {
+  margin-bottom: 14px;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.legal-card-line:last-of-type {
+  margin-bottom: 0;
+}
+
+.legal-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.legal-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-soft);
+  border-radius: 100px;
+}
+
+.legal-card-meta {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.legal-lead {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  padding: 16px 20px;
+  border-left: 4px solid var(--primary);
+  background: rgba(0, 109, 236, 0.04);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.legal-content--vop {
+  max-width: 760px;
+}
+
+.legal-content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.legal-content h2 + h3 {
+  margin-top: 14px;
+}
+
 .legal-content h2 {
   font-size: 1.25rem;
   font-weight: 700;
