@@ -126,6 +126,22 @@ body {
   border-radius: 1px;
 }
 
+.nav-links a[aria-current="page"] {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.nav-links a[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 1px;
+}
+
 .nav-cta {
   background-color: var(--primary);
   color: #ffffff !important;
@@ -142,7 +158,8 @@ body {
   transform: translateY(-2px);
 }
 
-.nav-links a.nav-cta.active::after {
+.nav-links a.nav-cta.active::after,
+.nav-links a.nav-cta[aria-current="page"]::after {
   display: none;
 }
 
@@ -674,6 +691,68 @@ body {
 
 .about-body p:last-child {
   margin-bottom: 0;
+}
+
+/* ========== V kostce (GEO / AI – přehledné fakty) ========== */
+.geo-summary .section-subtitle {
+  margin-bottom: 40px;
+}
+
+.geo-summary-list {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 36px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 18px 28px;
+}
+
+@media (min-width: 640px) {
+  .geo-summary-list {
+    grid-template-columns: minmax(100px, 140px) 1fr;
+    align-items: start;
+  }
+}
+
+.geo-summary-list dt {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.geo-summary-list dd {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+@media (max-width: 639px) {
+  .geo-summary-list {
+    padding: 24px 22px;
+  }
+
+  .geo-summary-list dd + dt {
+    margin-top: 8px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+}
+
+.geo-summary-list a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.geo-summary-list a:hover {
+  text-decoration: underline;
 }
 
 /* ========== Proč má kvalitní web smysl (porovnání) ========== */

@@ -1,0 +1,33 @@
+{
+  "redirects": [
+    {
+      "source": "/tvorba-webu-znojmo.html",
+      "destination": "/tvorba-webu-znojmo",
+      "permanent": true
+    },
+    {
+      "source": "/vseobecne-obchodni-podminky.html",
+      "destination": "/vseobecne-obchodni-podminky",
+      "permanent": true
+    },
+    {
+      "source": "/zasady-ochrany-osobnich-udaju.html",
+      "destination": "/zasady-ochrany-osobnich-udaju",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/tvorba-webu-znojmo",
+      "destination": "/tvorba-webu-znojmo.html"
+    },
+    {
+      "source": "/vseobecne-obchodni-podminky",
+      "destination": "/vseobecne-obchodni-podminky.html"
+    },
+    {
+      "source": "/zasady-ochrany-osobnich-udaju",
+      "destination": "/zasady-ochrany-osobnich-udaju.html"
+    }
+  ]
+}
