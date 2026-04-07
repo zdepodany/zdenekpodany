@@ -209,20 +209,23 @@
       <div class="hero-inner container">
         <div class="hero-panel">
           <div class="hero-panel-media" aria-hidden="true">
-            <img class="hero-panel-img" src="/img/hero.webp" alt="" width="2678" height="2048" fetchpriority="high" decoding="async">
+            <picture>
+              <source media="(max-width: 959px)" srcset="/img/hero-s.webp" type="image/webp">
+              <img class="hero-panel-img" src="/img/hero.webp" alt="" width="2688" height="1949" fetchpriority="high" decoding="async">
+            </picture>
           </div>
           <div class="hero-panel-overlay" aria-hidden="true"></div>
           <div class="hero-content">
             <h1 class="hero-title">
-              Webovky od někoho, kdo rozumí <span class="highlight">lidem</span>, ne jen kódu
+              Stavím výkonné weby na míru, které dělají z návštěvníků <span class="highlight">zákazníky</span>
             </h1>
             <p class="hero-subtitle">
               Hezký web nestačí. Záleží na tom, co návštěvník udělá. Stavím weby tak, aby návštěvník udělal to, co potřebuješ — zavolal, napsal, přišel.
             </p>
             <div class="hero-cta-wrap">
               <div class="hero-cta">
-                <a href="#kontakt" class="btn btn-primary">Chci cenovou nabídku</a>
-                <a href="#cenik" class="btn btn-secondary">Kolik to stojí?</a>
+                <a href="#kontakt" class="btn btn-primary" data-ga-hero-cta="cenova_nabidka">Chci cenovou nabídku</a>
+                <a href="#cenik" class="btn btn-secondary" data-ga-hero-cta="cenik">Kolik to stojí?</a>
               </div>
               <p class="hero-cta-micro">Bez závazků, odpovím do 24 hodin.</p>
             </div>

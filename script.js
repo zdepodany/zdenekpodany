@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (consent === 'accepted') {
     loadGoogleAnalytics();
-  } else if (!consent) {
+  } else if (!consent && banner) {
     banner.hidden = false;
   }
 
@@ -35,16 +35,29 @@ document.addEventListener('DOMContentLoaded', () => {
     acceptBtn.addEventListener('click', () => {
       localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted');
       loadGoogleAnalytics();
-      banner.hidden = true;
+      if (banner) banner.hidden = true;
     });
   }
 
   if (rejectBtn) {
     rejectBtn.addEventListener('click', () => {
       localStorage.setItem(COOKIE_CONSENT_KEY, 'rejected');
-      banner.hidden = true;
+      if (banner) banner.hidden = true;
     });
   }
+
+  // Hero CTA – GA4 (gtag existuje až po souhlasu / loadGoogleAnalytics)
+  document.querySelectorAll('.hero-cta a[data-ga-hero-cta]').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (typeof gtag !== 'function') return;
+      const ctaLabel = link.getAttribute('data-ga-hero-cta') || '';
+      gtag('event', 'hero_cta_click', {
+        cta_label: ctaLabel,
+        link_url: link.getAttribute('href') || '',
+        page_path: window.location.pathname || '/',
+      });
+    });
+  });
 
   // Scroll reveal – elementy se zobrazí při vstupu do viewportu
   const revealElements = document.querySelectorAll(

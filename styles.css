@@ -21,6 +21,14 @@
   --header-h: 72px;
   --hero-gap-under-nav: 10px;
   --hero-section-pad-bottom: 20px;
+  /* Jednotné pozadí hero panelu (text + průhledná část fotky) */
+  --hero-panel-gradient: linear-gradient(
+    165deg,
+    #003d8a 0%,
+    #004a9e 38%,
+    #005bc4 72%,
+    #006dec 100%
+  );
 }
 
 *,
@@ -260,6 +268,7 @@ body {
   justify-content: flex-start;
   border-radius: var(--radius-lg);
   overflow: hidden;
+  background: var(--hero-panel-gradient);
   min-width: 0;
   max-width: 100%;
   width: 100%;
@@ -280,6 +289,14 @@ body {
   inset: 0;
   z-index: 0;
   overflow: hidden;
+  background: transparent;
+}
+
+.hero-panel-media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
 }
 
 .hero-panel-img {
@@ -287,8 +304,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* zarovnání blíž k hornímu okraji, aby se na širším displeji neřízla hlava */
-  object-position: 80% 12%;
+  /* spodek = celá postava; mírně vpravo = žádný pruh vpravo, levá část jde pod gradient */
+  object-position: 82% bottom;
 }
 
 .hero-panel-overlay {
@@ -331,49 +348,74 @@ body {
   text-align: left;
 }
 
-@media (max-width: 960px) {
+/* Mobilní hero: obsah nahoře na plné modré, fotka pod (bez překryvu textu) — shodné s breakpointem hero-s.webp */
+@media (max-width: 959px) {
   .hero .container {
     padding-left: 12px;
     padding-right: 12px;
   }
 
-  .hero-panel {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .hero {
+    min-height: 0;
   }
 
-  .hero-panel-img {
-    object-position: 72% 15%;
+  .hero-panel {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    min-height: 0;
   }
 
   .hero-panel-overlay {
-    background: linear-gradient(
-      180deg,
-      transparent 0%,
-      transparent 20%,
-      rgba(0, 109, 236, 0.18) 40%,
-      rgba(0, 109, 236, 0.65) 60%,
-      rgba(0, 91, 196, 0.92) 80%,
-      rgba(0, 61, 138, 0.98) 100%
-    );
+    display: none;
   }
 
   .hero-content {
+    order: 1;
+    position: relative;
+    z-index: 2;
     max-width: 100%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
     text-align: left;
-    padding-top: clamp(44px, 8vw, 64px);
-    padding-bottom: clamp(44px, 8vw, 64px);
-    padding-left: clamp(28px, 6vw, 40px);
-    padding-right: clamp(28px, 6vw, 40px);
+    flex-shrink: 0;
+    padding-top: clamp(28px, 7vw, 48px);
+    padding-bottom: clamp(28px, 7vw, 44px);
+    padding-left: clamp(24px, 6vw, 36px);
+    padding-right: clamp(24px, 6vw, 36px);
+    background: transparent;
+  }
+
+  .hero-panel-media {
+    order: 2;
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    width: 100%;
+    flex: 0 0 auto;
+    aspect-ratio: 1 / 1;
+    max-height: min(88vw, 420px);
+    margin: 0 auto;
+    background: transparent;
+  }
+
+  .hero-panel-media picture,
+  .hero-panel-media .hero-panel-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* contain: na širokém tabletu se box často zploští (max-height + šířka 100 %);
+     cover + center bottom pak ořezává hlavu. Spodek zarovnán, nahoře gradient/průhled. */
+  .hero-panel-img {
+    object-fit: contain;
+    object-position: center bottom;
   }
 
   .hero-title {
     text-wrap: balance;
   }
 
-  /* vyšší specificita než pozdější .hero-subtitle { font-size: 1.25rem } */
   .hero-panel .hero-subtitle {
     font-size: 16px;
     line-height: 1.55;
@@ -2095,8 +2137,6 @@ body {
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 100vh;
-    min-height: 100dvh;
     --hero-gap-under-nav: 8px;
     --hero-section-pad-bottom: 16px;
     padding: calc(var(--header-h) + var(--hero-gap-under-nav)) 0 var(--hero-section-pad-bottom);
