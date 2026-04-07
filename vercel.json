@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.zdenekpodany.cz"
+        }
+      ],
+      "destination": "https://zdenekpodany.cz/$1",
+      "permanent": true
+    },
+    {
       "source": "/tvorba-webu-znojmo.html",
       "destination": "/tvorba-webu-znojmo",
       "permanent": true
