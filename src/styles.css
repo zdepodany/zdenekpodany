@@ -339,7 +339,7 @@ body {
   z-index: 2;
   min-width: 0;
   width: 100%;
-  max-width: min(680px, 78%);
+  max-width: min(800px, 60%);
   padding-top: clamp(40px, 6vw, 76px);
   padding-bottom: clamp(40px, 6vw, 76px);
   padding-right: clamp(28px, 4vw, 56px);
@@ -414,11 +414,13 @@ body {
 
   .hero-title {
     text-wrap: balance;
+    font-size: clamp(1.9rem, 7vw, 2.5rem);
   }
 
   .hero-panel .hero-subtitle {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.55;
+    margin-bottom: 24px;
   }
 
   .hero-panel .hero-cta-micro {
@@ -469,11 +471,12 @@ body {
 
 /* Hero title = LCP element – rychlejší animace (0.4s) pro lepší LCP */
 .hero-title {
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-size: clamp(2.2rem, 4.5vw, 3.75rem);
   font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
   margin-bottom: 24px;
+  text-wrap: balance;
   animation: fadeInUp 0.4s ease forwards;
 }
 
@@ -519,6 +522,21 @@ body {
     transform: translateY(0);
   }
 }
+
+/* ========== Hero – nové prvky ========== */
+
+/* Subtilní dot-grid textura přes celý panel */
+.hero-dots {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+
+
 
 /* ========== Metriky ========== */
 .metrics-bar {
