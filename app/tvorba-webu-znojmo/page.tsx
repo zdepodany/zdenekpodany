@@ -1,0 +1,269 @@
+import type { Metadata } from 'next'
+import MetricsBar from '@/components/sections/MetricsBar'
+import TestimonialsCarousel from '@/components/sections/TestimonialsCarousel'
+import PricingSection from '@/components/sections/PricingSection'
+import FaqList from '@/components/sections/FaqList'
+import ContactForm from '@/components/sections/ContactForm'
+import Footer from '@/components/layout/Footer'
+
+export const metadata: Metadata = {
+  title: 'Webovky a appky na míru Znojmo | Žádné šablony',
+  description: 'Zapomeňte na pomalý WordPress. Stavím ultra-rychlé custom weby a aplikace ve Znojmě, které vám skutečně vydělají. Podívejte se na mé reference.',
+  alternates: { canonical: '/tvorba-webu-znojmo' },
+}
+
+export default function TvorbaWebuZnojmoPage() {
+  return (
+    <>
+      <main>
+        {/* Hero */}
+        <section className="hero">
+          <div className="hero-inner container">
+            <div className="hero-panel">
+              <div className="hero-panel-media" aria-hidden="true">
+                <picture>
+                  <source media="(max-width: 959px)" srcSet="/img/hero-s.webp" type="image/webp" />
+                  <img className="hero-panel-img" src="/img/hero.webp" alt="" width={2688} height={1949} fetchPriority="high" decoding="async" />
+                </picture>
+              </div>
+              <div className="hero-panel-overlay" aria-hidden="true"></div>
+              <div className="hero-content">
+                <h1 className="hero-title">
+                  Webovky od někoho, kdo rozumí <span className="highlight">lidem</span>, ne jen kódu
+                </h1>
+                <p className="hero-subtitle">
+                  Hezký web nestačí. Záleží na tom, co návštěvník udělá. Stavím weby tak, aby návštěvník udělal to, co potřebuješ — zavolal, napsal, přišel.
+                </p>
+                <div className="hero-cta-wrap">
+                  <div className="hero-cta">
+                    <a href="#kontakt" className="btn btn-primary">Chci cenovou nabídku</a>
+                    <a href="#cenik" className="btn btn-secondary">Kolik to stojí?</a>
+                  </div>
+                  <p className="hero-cta-micro">Bez závazků, odpovím do 24 hodin.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Ukázky */}
+        <section id="ukazky" className="section showcase">
+          <div className="container">
+            <h2 className="section-title">Ukázky</h2>
+            <p className="section-subtitle">Takhle může vypadat váš web.</p>
+            <div className="showcase-grid">
+              {[
+                { href: 'https://izolacekracman.cz', img: '/img/izolacekracmanznojmo.webp', alt: 'Izolace Petr Kráčman', title: 'Izolace Petr Kráčman', domain: 'izolacekracman.cz', story: 'Petr měl živnost rozjetou, ale online byl jen bod na Google Maps. Teď má web, který zákazníkům ukáže, co dělá, a jak ho kontaktovat.' },
+                { href: 'https://www.mackovskachasa.cz', img: '/img/mackovskachasa.webp', alt: 'Mackovská chasa', title: 'Mackovská chasa z.s.', domain: 'mackovskachasa.cz', story: 'Spolek potřeboval přehledné místo pro aktuality, historii a povinně zveřejňované informace. Hotovo rychle, bez zbytečné složitosti.' },
+                { href: 'https://obecnirestauracezeliv.cz', img: '/img/obecnirestauracezeliv.webp', alt: 'Obecní restaurace Želiv', title: 'Obecní restaurace Želiv', domain: 'obecnirestauracezeliv.cz', story: 'Nový majitel potřeboval web s jídelníčkem a základními informacemi hned od začátku. Spustili jsme rychle, bez komplikací.' },
+                { href: 'https://vykupdomu24.cz', img: '/img/showcase-vykupdomu24.webp', alt: 'Výkup domů 24', title: 'Výkup domů 24', domain: 'vykupdomu24.cz', story: 'Firma potřebovala důvěryhodnou online prezentaci pro klienty zvažující prodej nemovitosti. Web jim ji dodal.' },
+                { href: 'https://pohodlnehubnuti.cz', img: '/img/showcase-pohodlnehubnuti.webp', alt: 'Pohodlné hubnutí', title: 'Pohodlné hubnutí', domain: 'pohodlnehubnuti.cz', story: 'Martin potřeboval jedno místo, kde zákazníci pochopí, co nabízí, a rovnou si objednají. Web mu teď reálně vydělává.' },
+              ].map((c, i) => (
+                <a key={i} href={c.href} target="_blank" rel="noopener" className="showcase-card">
+                  <div className="showcase-card-image">
+                    <img src={c.img} alt={`${c.alt} – web`} loading="lazy" />
+                    <span className="showcase-card-overlay">Prohlédnout web</span>
+                  </div>
+                  <div className="showcase-card-info">
+                    <span className="showcase-card-title">{c.title}</span>
+                    <span className="showcase-card-link">{c.domain} →</span>
+                    <p className="showcase-card-story">{c.story}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <div className="showcase-cta">
+              <a href="#cenik" className="btn btn-primary">Kolik takový web stojí?</a>
+            </div>
+          </div>
+        </section>
+
+        {/* Osobní setkání */}
+        <section className="section" style={{ paddingTop: '60px' }}>
+          <div className="container">
+            <div className="local-highlight">
+              <h2 className="section-title">Osobní přístup ve Znojmě a okolí</h2>
+              <p className="section-subtitle">
+                Bydlím nedaleko Znojma a rád se s vámi potkám osobně. Ať už jste živnostník z centra Znojma, řemeslník z okolních vesnic nebo majitel firmy v Pohořelicích či Hrušovanech – můžeme si vše projít u kávy a domluvit web přesně na míru vašemu podnikání.
+              </p>
+              <p className="section-subtitle" style={{ marginBottom: 0 }}>
+                Osobní konzultace je zdarma a nezavazuje. Napište mi a domluvíme termín.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Metriky */}
+        <MetricsBar />
+
+        {/* Služby */}
+        <section id="sluzby" className="section services">
+          <div className="container">
+            <h2 className="section-title">Co pro vás ve Znojmě připravím</h2>
+            <p className="section-subtitle">Tři varianty pro znojemské živnostníky a firmy. Všechny přehledné, funkční a bez zbytečné složitosti.</p>
+            <div className="services-grid">
+              <article className="service-card">
+                <div className="service-icon">01</div>
+                <h3>Jednoduchý prezentační web</h3>
+                <p>Ideální pro znojemské živnostníky – řemeslníky, obchody, služby. Profesionální vizitka na internetu: o vás, vaše služby a kontakt. Zákazníci z regionu vás snadno najdou.</p>
+              </article>
+              <article className="service-card">
+                <div className="service-icon">02</div>
+                <h3>Web na rozjezd podnikání</h3>
+                <p>Rozběhnete podnikání ve Znojmě nebo okolí? Potřebujete web, který vás představí a přivede první zákazníky. Vše pro start, nic navíc.</p>
+              </article>
+              <article className="service-card">
+                <div className="service-icon">03</div>
+                <h3>UI/UX Audit</h3>
+                <p>Web už máte, ale nefunguje podle očekávání? Projdu ho UI/UX optikou a dostanete jasné tipy, co upravit – osobně ve Znojmě nebo vzdáleně.</p>
+              </article>
+            </div>
+            <div className="services-cta">
+              <a href="#kontakt" className="btn btn-primary">Chci web</a>
+            </div>
+          </div>
+        </section>
+
+        {/* Jak spolupracujeme */}
+        <section id="jak-spolupracujeme" className="section process">
+          <div className="container">
+            <h2 className="section-title">Jak to probíhá – bez stresu</h2>
+            <p className="section-subtitle">Všechno složité řeším já. Můžeme se potkat osobně ve Znojmě nebo okolí – probereme vše naživo a vy mi jednoduše řeknete, co potřebujete.</p>
+            <div className="process-steps">
+              <div className="process-step">
+                <div className="step-number">1</div>
+                <h3>Napíšete mi nebo se potkáme</h3>
+                <p>Stačí pár vět – kdo jste, co děláte a co od webu očekáváte. Nebo se můžeme potkat osobně v Znojmě, Pohořelicích či Hrušovanech.</p>
+              </div>
+              <div className="process-step">
+                <div className="step-number">2</div>
+                <h3>Domluvíme se na detailech</h3>
+                <p>Probereme obsah, barvy a strukturu. Zeptám se na to důležité, vy mi odpovíte jednoduše. Osobně nebo online.</p>
+              </div>
+              <div className="process-step">
+                <div className="step-number">3</div>
+                <h3>Vytvořím váš web</h3>
+                <p>Připravím návrh a po odsouhlasení web během několika dní spustíme.</p>
+              </div>
+              <div className="process-step">
+                <div className="step-number">4</div>
+                <h3>Spustíme ho a jste online</h3>
+                <p>Pomůžu s nasazením, ukážu vám základy údržby. A máte hotovo.</p>
+              </div>
+            </div>
+            <div className="section-cta">
+              <a href="#kontakt" className="btn btn-primary">Chci začít</a>
+            </div>
+          </div>
+        </section>
+
+        {/* Proč má kvalitní web smysl */}
+        <section id="proc-web" className="section comparison">
+          <div className="container">
+            <h2 className="section-title">Proč má kvalitní web smysl i pro malou firmu?</h2>
+            <div className="comparison-table">
+              <div className="comparison-header">
+                <div className="comparison-cell comparison-cell--negative"><span className="comparison-icon comparison-icon--cross" aria-hidden="true"></span> Bez webu</div>
+                <div className="comparison-cell comparison-cell--positive"><span className="comparison-icon comparison-icon--check" aria-hidden="true"></span> S kvalitním webem</div>
+              </div>
+              {[
+                ['Zákazník si vás musí složitě dohledávat', 'Vše důležité najde během pár vteřin'],
+                ['Informace jen po telefonu nebo zprávách', 'Služby, ceny i reference přehledně online'],
+                ['Náhodný první dojem', 'Profesionální a důvěryhodná prezentace'],
+                ['Závislost jen na doporučení', 'Stabilní online vizitka, která pracuje 24/7'],
+                ['Konkurence působí silněji', 'Vy působíte stejně profesionálně — nebo lépe'],
+              ].map(([neg, pos], i) => (
+                <div key={i} className="comparison-row">
+                  <div className="comparison-cell comparison-cell--negative">
+                    <span className="comparison-cell-label">Bez webu</span>
+                    <span className="comparison-icon comparison-icon--cross" aria-hidden="true"></span> {neg}
+                  </div>
+                  <div className="comparison-cell comparison-cell--positive">
+                    <span className="comparison-cell-label">S kvalitním webem</span>
+                    <span className="comparison-icon comparison-icon--check" aria-hidden="true"></span> {pos}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="comparison-cta-button">
+              <a href="#kontakt" className="btn btn-primary">Chci jednoduchý a funkční web</a>
+            </div>
+            <p className="comparison-cta">
+              Kvalitní web dnes není luxus.<br />
+              Je to základní součást podnikání — stejně jako telefon nebo firemní auto.<br /><br />
+              A nemusí být složitý ani drahý.
+            </p>
+          </div>
+        </section>
+
+        {/* Reference */}
+        <section id="reference" className="section testimonials">
+          <div className="container">
+            <h2 className="section-title">Co říkají klienti z regionu</h2>
+            <p className="section-subtitle">Reference od lidí, kterým jsem pomohl s webem – včetně firem z okolí Znojma.</p>
+            <TestimonialsCarousel />
+            <div className="section-cta">
+              <a href="#kontakt" className="btn btn-primary">Chci podobný výsledek</a>
+            </div>
+          </div>
+        </section>
+
+        {/* Ceník */}
+        <PricingSection />
+
+        {/* Value Compare */}
+        <section className="section value-compare" aria-labelledby="value-compare-heading-znojmo">
+          <div className="container">
+            <h2 id="value-compare-heading-znojmo" className="section-title">Proč platíte méně za stejnou kvalitu?</h2>
+            <p className="section-subtitle">Stejný typ výsledku jako u větší agentury — jiný model práce, bez zbytečné režie kanceláří a velkého týmu.</p>
+            <div className="value-compare-panel">
+              <table className="value-compare-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Položka</th>
+                    <th scope="col">Běžná digitální agentura</th>
+                    <th scope="col">Webovky jednoduše (Zdeněk)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Proces</th><td data-label="Běžná digitální agentura">Manažer, designer, kodér</td><td className="value-compare-highlight" data-label="Webovky jednoduše (Zdeněk)">1 expert – návrh, tvorba i spuštění</td></tr>
+                  <tr><th scope="row">Režie</th><td data-label="Běžná digitální agentura">Uklízečka, kancelář, ředitel, investor, technika, DPH</td><td className="value-compare-highlight" data-label="Webovky jednoduše (Zdeněk)">Domácí kancelář v Břežanech</td></tr>
+                  <tr><th scope="row">Cena za web</th><td data-label="Běžná digitální agentura">40 000 Kč +</td><td className="value-compare-highlight" data-label="Webovky jednoduše (Zdeněk)">14 900 Kč +</td></tr>
+                  <tr><th scope="row">Výsledek</th><td data-label="Běžná digitální agentura">Profesionální web</td><td className="value-compare-highlight" data-label="Webovky jednoduše (Zdeněk)">Profesionální web</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="section-cta">
+              <a href="#kontakt" className="btn btn-primary">Chci ušetřit</a>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section id="faq" className="section faq" aria-labelledby="faq-heading-znojmo">
+          <div className="container">
+            <h2 id="faq-heading-znojmo" className="section-title">Časté otázky</h2>
+            <p className="section-subtitle">Odpovědi na to, co řeší většina klientů před začátkem spolupráce.</p>
+            <FaqList />
+            <div className="section-cta">
+              <p className="faq-cta-lead">Nezodpovězená otázka? Napište mi.</p>
+              <a href="#kontakt" className="btn btn-primary">Chci se zeptat</a>
+            </div>
+          </div>
+        </section>
+
+        {/* Kontakt */}
+        <section id="kontakt" className="section contact">
+          <div className="container">
+            <h2 className="section-title">Napište mi</h2>
+            <p className="section-subtitle">Máte dotaz nebo chcete začít? Napište, co potřebujete – ozvu se co nejdřív. Rád se s vámi potkám osobně ve Znojmě nebo okolí.</p>
+            <ContactForm />
+            <p className="contact-alternative">Nebo mi napište přímo na <a href="mailto:zdenek@zdenekpodany.cz">zdenek@zdenekpodany.cz</a></p>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </>
+  )
+}

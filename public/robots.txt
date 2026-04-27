@@ -1,0 +1,6 @@
+# Last modified: 2026-04-24
+
+User-agent: *
+Allow: /
+
+Sitemap: https://zdenekpodany.cz/sitemap.xml
