@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 interface PricingCard {
   label: string
   title: string
@@ -82,6 +84,11 @@ export default function PricingSection() {
           ))}
         </div>
         <p className="pricing-note">Přesnou cenu vždy víte předem. Bez překvapení a skrytých poplatků.</p>
+        <div style={{ textAlign: 'center', marginTop: '8px' }}>
+          <Link href="/cenik" className="pricing-full-link">
+            Zobrazit kompletní ceník a nabídku služeb →
+          </Link>
+        </div>
       </div>
     </section>
   )

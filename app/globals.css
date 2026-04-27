@@ -1656,7 +1656,22 @@ body {
   text-align: center;
   color: var(--text-muted);
   font-size: 0.9rem;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
+}
+
+.pricing-full-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition), color var(--transition);
+  padding-bottom: 1px;
+}
+
+.pricing-full-link:hover {
+  border-bottom-color: var(--primary);
+  color: var(--primary-dark);
 }
 
 @media (max-width: 768px) {
@@ -3071,6 +3086,417 @@ body {
   padding: 0;
   font-size: 0.9rem;
   color: #e2e8f0;
+}
+
+/* ========== Stránka /cenik ========== */
+
+.cenik-page {
+  padding-top: var(--header-h);
+}
+
+.cenik-hero {
+  background: var(--hero-panel-gradient);
+  padding: 64px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cenik-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(0, 109, 236, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cenik-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 32px;
+  transition: color var(--transition);
+}
+
+.cenik-breadcrumb:hover {
+  color: #fff;
+}
+
+.cenik-hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.cenik-hero-sub {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+}
+
+.cenik-main-pricing {
+  background: var(--bg-alt);
+}
+
+/* ── Addon cards ── */
+
+.cenik-addons {
+  background: var(--bg);
+}
+
+.addons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-top: 20px;
+  margin-bottom: 0;
+  align-items: start;
+}
+
+.addon-card {
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.addon-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.addon-card--featured {
+  border-color: transparent;
+  background: var(--hero-panel-gradient);
+  box-shadow: 0 20px 56px rgba(0, 109, 236, 0.28);
+  transform: translateY(-12px);
+}
+
+.addon-card--featured:hover {
+  border-color: transparent;
+  box-shadow: 0 28px 72px rgba(0, 109, 236, 0.36);
+  transform: translateY(-16px);
+}
+
+.addon-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.addon-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.addon-card--featured .addon-icon {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.addon-card-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.addon-card--featured .addon-card-label {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.addon-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.addon-card--featured .addon-card-title {
+  color: #fff;
+}
+
+.addon-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.addon-card--featured .addon-card-desc {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.addon-pricing-options {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  background: rgba(0, 109, 236, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 109, 236, 0.1);
+}
+
+.addon-card--featured .addon-pricing-options {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.addon-price-option {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.addon-price-amount {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.addon-card--featured .addon-price-amount {
+  color: #fff;
+}
+
+.addon-price-period {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.addon-card--featured .addon-price-period {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.addon-price-option--alt .addon-price-amount {
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.addon-card--featured .addon-price-option--alt .addon-price-amount {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.addon-price-divider {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.addon-card--featured .addon-price-divider {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.addon-price-save {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #16a34a;
+  background: #dcfce7;
+  border-radius: 100px;
+  padding: 2px 8px;
+  white-space: nowrap;
+  align-self: center;
+}
+
+.addon-card--featured .addon-price-save {
+  color: #16a34a;
+  background: #dcfce7;
+}
+
+.addon-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  flex: 1;
+}
+
+.addon-features li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  font-size: 0.875rem;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.addon-features li:last-child {
+  margin-bottom: 0;
+}
+
+.addon-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.addon-card--featured .addon-features li {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.addon-card--featured .addon-features li::before {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.addon-card-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.addon-card-note svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  opacity: 0.6;
+}
+
+.addon-card--featured .addon-card-note {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.addon-card--featured .addon-card-note strong {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.addon-card-btn {
+  margin-top: auto;
+  font-size: 0.95rem;
+  width: 100%;
+  text-align: center;
+}
+
+.addon-card-btn--featured {
+  background: #fff;
+  color: var(--primary);
+  border: none;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.14);
+}
+
+.addon-card-btn--featured:hover {
+  background: #f0f6ff;
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 26px rgba(0, 0, 0, 0.18);
+}
+
+/* ── CTA sekce ── */
+
+.cenik-cta-section {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  padding: 80px 0;
+}
+
+.cenik-cta-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.cenik-cta-inner h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.cenik-cta-inner p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cenik-cta-btn {
+  margin-top: 8px;
+  font-size: 1rem;
+  padding: 16px 36px;
+}
+
+.cenik-cta-back {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-top: 4px;
+  transition: color var(--transition);
+}
+
+.cenik-cta-back:hover {
+  color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .addons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .addon-card--featured {
+    transform: none;
+  }
+
+  .addon-card--featured:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 640px) {
+  .cenik-hero {
+    padding: 48px 0 56px;
+  }
+
+  .addon-card {
+    padding: 28px 22px;
+  }
+
+  .addon-pricing-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 }
 
 .blog-post-body hr {
