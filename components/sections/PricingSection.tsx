@@ -1,7 +1,3 @@
-'use client'
-
-import BorderGlow from '@/components/ui/BorderGlow'
-
 interface PricingCard {
   label: string
   title: string
@@ -12,7 +8,6 @@ interface PricingCard {
   badge?: string
   ctaText: string
   ctaClass: string
-  glowColor: string
 }
 
 const CARDS: PricingCard[] = [
@@ -29,7 +24,6 @@ const CARDS: PricingCard[] = [
     ],
     ctaText: 'Mám zájem',
     ctaClass: 'btn btn-secondary btn-full pricing-card-btn',
-    glowColor: '#3d8ef7',
   },
   {
     label: 'Doporučuji',
@@ -48,7 +42,6 @@ const CARDS: PricingCard[] = [
     badge: 'Nejoblíbenější',
     ctaText: 'Chci tento web',
     ctaClass: 'btn btn-full pricing-card-btn pricing-card-btn--featured',
-    glowColor: '#006DEC',
   },
   {
     label: 'Analýza',
@@ -63,7 +56,6 @@ const CARDS: PricingCard[] = [
     ],
     ctaText: 'Mám zájem',
     ctaClass: 'btn btn-secondary btn-full pricing-card-btn',
-    glowColor: '#3d8ef7',
   },
 ]
 
@@ -75,25 +67,18 @@ export default function PricingSection() {
         <p className="section-subtitle">Transparentní odhady – u každé služby víte, do čeho jdete.</p>
         <div className="pricing-grid">
           {CARDS.map((card, i) => (
-            <BorderGlow
-              key={i}
-              color={card.glowColor}
-              glowSize={card.featured ? 160 : 100}
-              duration={card.featured ? 2500 : 3500}
-            >
-              <div className={`pricing-card reveal${card.featured ? ' featured' : ''}`}>
-                {card.badge && <span className="pricing-badge">{card.badge}</span>}
-                <div className="pricing-card-label">{card.label}</div>
-                <h3>{card.title}</h3>
-                <div className="price">{card.price}</div>
-                <div className="pricing-divider"></div>
-                <p>{card.description}</p>
-                <ul className="pricing-features">
-                  {card.features.map((f, j) => <li key={j}>{f}</li>)}
-                </ul>
-                <a href="#kontakt" className={card.ctaClass}>{card.ctaText}</a>
-              </div>
-            </BorderGlow>
+            <div key={i} className={`pricing-card reveal${card.featured ? ' featured' : ''}`}>
+              {card.badge && <span className="pricing-badge">{card.badge}</span>}
+              <div className="pricing-card-label">{card.label}</div>
+              <h3>{card.title}</h3>
+              <div className="price">{card.price}</div>
+              <div className="pricing-divider"></div>
+              <p>{card.description}</p>
+              <ul className="pricing-features">
+                {card.features.map((f, j) => <li key={j}>{f}</li>)}
+              </ul>
+              <a href="#kontakt" className={card.ctaClass}>{card.ctaText}</a>
+            </div>
           ))}
         </div>
         <p className="pricing-note">Přesnou cenu vždy víte předem. Bez překvapení a skrytých poplatků.</p>
