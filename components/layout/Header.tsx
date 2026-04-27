@@ -10,10 +10,13 @@ export default function Header() {
     <header className="header">
       <nav className="nav container">
         <div className="nav-brand">
-          <Link href="/" className="logo">Zdeněk Podaný</Link>
+          <Link href="/" className="logo">
+            <span className="logo-first">Zdeněk</span>
+            <span className="logo-last">&nbsp;Podaný</span>
+          </Link>
         </div>
         <button
-          className="nav-toggle"
+          className={`nav-toggle${menuOpen ? ' active' : ''}`}
           aria-label={menuOpen ? 'Zavřít menu' : 'Otevřít menu'}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(o => !o)}
@@ -30,7 +33,11 @@ export default function Header() {
           <li><a href="/#cenik" onClick={() => setMenuOpen(false)}>Ceník</a></li>
           <li><a href="/#faq" onClick={() => setMenuOpen(false)}>FAQ</a></li>
           <li><Link href="/blog" onClick={() => setMenuOpen(false)}>Blog</Link></li>
-          <li><a href="/#kontakt" className="nav-cta" onClick={() => setMenuOpen(false)}>Cenová nabídka</a></li>
+          <li>
+            <a href="/#kontakt" className="nav-cta" onClick={() => setMenuOpen(false)}>
+              Cenová nabídka<span className="nav-cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
