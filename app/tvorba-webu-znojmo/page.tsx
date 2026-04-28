@@ -49,28 +49,63 @@ export default function TvorbaWebuZnojmoPage() {
         {/* Ukázky */}
         <section id="ukazky" className="section showcase">
           <div className="container">
-            <h2 className="section-title">Ukázky</h2>
-            <p className="section-subtitle">Takhle může vypadat váš web.</p>
+            <div className="showcase-header">
+              <div>
+                <h2 className="section-title">Ukázky</h2>
+                <p className="section-subtitle">Takhle může vypadat váš web.</p>
+              </div>
+            </div>
             <div className="showcase-grid">
-              {[
-                { href: 'https://izolacekracman.cz', img: '/img/izolacekracmanznojmo.webp', alt: 'Izolace Petr Kráčman', title: 'Izolace Petr Kráčman', domain: 'izolacekracman.cz', story: 'Petr měl živnost rozjetou, ale online byl jen bod na Google Maps. Teď má web, který zákazníkům ukáže, co dělá, a jak ho kontaktovat.' },
-                { href: 'https://www.mackovskachasa.cz', img: '/img/mackovskachasa.webp', alt: 'Mackovská chasa', title: 'Mackovská chasa z.s.', domain: 'mackovskachasa.cz', story: 'Spolek potřeboval přehledné místo pro aktuality, historii a povinně zveřejňované informace. Hotovo rychle, bez zbytečné složitosti.' },
-                { href: 'https://obecnirestauracezeliv.cz', img: '/img/obecnirestauracezeliv.webp', alt: 'Obecní restaurace Želiv', title: 'Obecní restaurace Želiv', domain: 'obecnirestauracezeliv.cz', story: 'Nový majitel potřeboval web s jídelníčkem a základními informacemi hned od začátku. Spustili jsme rychle, bez komplikací.' },
-                { href: 'https://vykupdomu24.cz', img: '/img/showcase-vykupdomu24.webp', alt: 'Výkup domů 24', title: 'Výkup domů 24', domain: 'vykupdomu24.cz', story: 'Firma potřebovala důvěryhodnou online prezentaci pro klienty zvažující prodej nemovitosti. Web jim ji dodal.' },
-                { href: 'https://pohodlnehubnuti.cz', img: '/img/showcase-pohodlnehubnuti.webp', alt: 'Pohodlné hubnutí', title: 'Pohodlné hubnutí', domain: 'pohodlnehubnuti.cz', story: 'Martin potřeboval jedno místo, kde zákazníci pochopí, co nabízí, a rovnou si objednají. Web mu teď reálně vydělává.' },
-              ].map((c, i) => (
-                <a key={i} href={c.href} target="_blank" rel="noopener" className="showcase-card">
-                  <div className="showcase-card-image">
-                    <img src={c.img} alt={`${c.alt} – web`} loading="lazy" />
-                    <span className="showcase-card-overlay">Prohlédnout web</span>
+              <a href="https://izolacekracman.cz" target="_blank" rel="noopener" className="showcase-card showcase-card--featured reveal">
+                <img src="/img/izolacekracmanznojmo.webp" alt="Izolace Petr Kráčman – web pro izolace" loading="lazy" />
+                <div className="showcase-cap">
+                  <p className="showcase-story">Petr měl živnost rozjetou, ale online byl jen bod na Google Maps. Teď má web, který zákazníkům ukáže, co dělá, a jak ho kontaktovat.</p>
+                  <div className="showcase-foot">
+                    <span className="showcase-title">Izolace Petr Kráčman</span>
+                    <span className="showcase-domain">izolacekracman.cz ↗</span>
                   </div>
-                  <div className="showcase-card-info">
-                    <span className="showcase-card-title">{c.title}</span>
-                    <span className="showcase-card-link">{c.domain} →</span>
-                    <p className="showcase-card-story">{c.story}</p>
+                </div>
+              </a>
+              <a href="https://www.mackovskachasa.cz" target="_blank" rel="noopener" className="showcase-card reveal">
+                <img src="/img/mackovskachasa.webp" alt="Mackovská chasa – web pro spolek" loading="lazy" />
+                <div className="showcase-cap">
+                  <p className="showcase-story">Spolek potřeboval přehledné místo pro aktuality, historii a povinně zveřejňované informace. Hotovo rychle, bez zbytečné složitosti.</p>
+                  <div className="showcase-foot">
+                    <span className="showcase-title">Mackovská chasa z.s.</span>
+                    <span className="showcase-domain">mackovskachasa.cz ↗</span>
                   </div>
-                </a>
-              ))}
+                </div>
+              </a>
+              <a href="https://obecnirestauracezeliv.cz" target="_blank" rel="noopener" className="showcase-card reveal">
+                <img src="/img/obecnirestauracezeliv.webp" alt="Obecní restaurace Želiv – web pro restauraci" loading="lazy" />
+                <div className="showcase-cap">
+                  <p className="showcase-story">Nový majitel potřeboval web s jídelníčkem a základními informacemi hned od začátku. Spustili jsme rychle, bez komplikací.</p>
+                  <div className="showcase-foot">
+                    <span className="showcase-title">Obecní restaurace Želiv</span>
+                    <span className="showcase-domain">obecnirestauracezeliv.cz ↗</span>
+                  </div>
+                </div>
+              </a>
+              <a href="https://vykupdomu24.cz" target="_blank" rel="noopener" className="showcase-card reveal">
+                <img src="/img/showcase-vykupdomu24.webp" alt="Výkup domů 24 – web pro výkup nemovitostí" loading="lazy" />
+                <div className="showcase-cap">
+                  <p className="showcase-story">Firma potřebovala důvěryhodnou online prezentaci pro klienty zvažující prodej nemovitosti. Web jim ji dodal.</p>
+                  <div className="showcase-foot">
+                    <span className="showcase-title">Výkup domů 24</span>
+                    <span className="showcase-domain">vykupdomu24.cz ↗</span>
+                  </div>
+                </div>
+              </a>
+              <a href="https://pohodlnehubnuti.cz" target="_blank" rel="noopener" className="showcase-card reveal">
+                <img src="/img/showcase-pohodlnehubnuti.webp" alt="Pohodlné hubnutí – web pro jídelníčky na míru a coaching" loading="lazy" />
+                <div className="showcase-cap">
+                  <p className="showcase-story">Martin potřeboval jedno místo, kde zákazníci pochopí, co nabízí, a rovnou si objednají. Web mu teď reálně vydělává.</p>
+                  <div className="showcase-foot">
+                    <span className="showcase-title">Pohodlné hubnutí</span>
+                    <span className="showcase-domain">pohodlnehubnuti.cz ↗</span>
+                  </div>
+                </div>
+              </a>
             </div>
             <div className="showcase-cta">
               <a href="#cenik" className="btn btn-primary">Kolik takový web stojí?</a>
