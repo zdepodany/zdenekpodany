@@ -1,10 +1,21 @@
 import type { Metadata } from 'next'
-import MetricsBar from '@/components/sections/MetricsBar'
-import TestimonialsCarousel from '@/components/sections/TestimonialsCarousel'
-import PricingSection from '@/components/sections/PricingSection'
-import FaqList from '@/components/sections/FaqList'
-import ContactForm from '@/components/sections/ContactForm'
-import Footer from '@/components/layout/Footer'
+import dynamic from 'next/dynamic'
+
+// ─── Critical path: static HTML, no JS needed above fold ─────────────────────
+// Hero, Ukázky (plain links), Services, Process are all inline static HTML.
+
+// ─── Lazy: everything below fold ─────────────────────────────────────────────
+// next/dynamic with default ssr:true → HTML pre-rendered at build time,
+// but each component's JS chunk is only parsed/executed when it becomes needed.
+const MetricsBar           = dynamic(() => import('@/components/sections/MetricsBar'))
+const OmneSection          = dynamic(() => import('@/components/sections/OmneSection'))
+const ProcWebSection       = dynamic(() => import('@/components/sections/ProcWebSection'))
+const TestimonialsCarousel = dynamic(() => import('@/components/sections/TestimonialsCarousel'))
+const PricingSection       = dynamic(() => import('@/components/sections/PricingSection'))
+const FaqList              = dynamic(() => import('@/components/sections/FaqList'))
+const ContactForm          = dynamic(() => import('@/components/sections/ContactForm'))
+const VKostceSection       = dynamic(() => import('@/components/sections/VKostceSection'))
+const Footer               = dynamic(() => import('@/components/layout/Footer'))
 
 export const metadata: Metadata = {
   title: 'Zdeněk Podaný | Tvorba webových stránek Znojmo & okolí',
@@ -254,61 +265,10 @@ export default function HomePage() {
         </section>
 
         {/* O mně */}
-        <section id="o-mne" className="section about" aria-labelledby="about-heading">
-          <div className="container">
-            <h2 id="about-heading" className="section-title">Kdo pro Vás web postaví</h2>
-            <div className="about-layout">
-              <figure className="about-photo">
-                <img src="/img/zdenek.webp" alt="Zdeněk Podaný" width={1280} height={941} loading="lazy" decoding="async" />
-              </figure>
-              <div className="about-body">
-                <p>Jmenuji se Zdeněk a weby tvořím od roku 2020 — nejdřív volnočasově, dnes naplno pro malé firmy a živnostníky z okolí Znojma a celé republiky.</p>
-                <p>K webdesignu jsem se dostal přirozeně — studoval jsem grafickou školu v Jihlavě a první roky jsem se živil jako UI/UX designer. Jenže projekty, kde bylo potřeba web nejen navrhnout, ale i postavit, přicházely čím dál častěji. Tak jsem začal stavět.</p>
-                <p>Na téhle práci mě baví jedna věc — každý web je jiný. Stejný proces, jiný výsledek. Každý klient má jiný byznys, jiné zákazníky, jiný příběh. A web musí odrážet právě tohle, ne šablonu staženou z internetu.</p>
-                <p>Proto každý web stavím od nuly — od prvního rozhovoru s klientem až po spuštění.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <OmneSection />
 
         {/* Proč má kvalitní web smysl */}
-        <section id="proc-web" className="section comparison">
-          <div className="container">
-            <h2 className="section-title">Proč má kvalitní web smysl i pro malou firmu?</h2>
-            <div className="comparison-table">
-              <div className="comparison-header">
-                <div className="comparison-cell comparison-cell--negative"><span className="comparison-icon comparison-icon--cross" aria-hidden="true"></span> Bez webu</div>
-                <div className="comparison-cell comparison-cell--positive"><span className="comparison-icon comparison-icon--check" aria-hidden="true"></span> S kvalitním webem</div>
-              </div>
-              {[
-                ['Zákazník si vás musí složitě dohledávat', 'Vše důležité najde během pár vteřin'],
-                ['Informace jen po telefonu nebo zprávách', 'Služby, ceny i reference přehledně online'],
-                ['Náhodný první dojem', 'Profesionální a důvěryhodná prezentace'],
-                ['Závislost jen na doporučení', 'Stabilní online vizitka, která pracuje 24/7'],
-                ['Konkurence působí silněji', 'Vy působíte stejně profesionálně — nebo lépe'],
-              ].map(([neg, pos], i) => (
-                <div key={i} className="comparison-row">
-                  <div className="comparison-cell comparison-cell--negative">
-                    <span className="comparison-cell-label">Bez webu</span>
-                    <span className="comparison-icon comparison-icon--cross" aria-hidden="true"></span> {neg}
-                  </div>
-                  <div className="comparison-cell comparison-cell--positive">
-                    <span className="comparison-cell-label">S kvalitním webem</span>
-                    <span className="comparison-icon comparison-icon--check" aria-hidden="true"></span> {pos}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="comparison-cta-button">
-              <a href="#kontakt" className="btn btn-primary">Chci jednoduchý a funkční web</a>
-            </div>
-            <p className="comparison-cta">
-              Kvalitní web dnes není luxus.<br />
-              Je to základní součást podnikání — stejně jako telefon nebo firemní auto.<br /><br />
-              A nemusí být složitý ani drahý.
-            </p>
-          </div>
-        </section>
+        <ProcWebSection />
 
         {/* Reference */}
         <section id="reference" className="section testimonials">
@@ -393,26 +353,7 @@ export default function HomePage() {
         </section>
 
         {/* V kostce */}
-        <section id="v-kostce" className="section geo-summary" aria-labelledby="geo-summary-heading">
-          <div className="container">
-            <h2 id="geo-summary-heading" className="section-title">V kostce</h2>
-            <p className="section-subtitle">Kdo jsem, co dělám a jak mě kontaktovat — stručně a bez obchodní mluvy.</p>
-            <dl className="geo-summary-list">
-              <dt>Kdo</dt>
-              <dd>Zdeněk Podaný — tvorba webů, webdesign a UI/UX. Jeden člověk od návrhu po spuštění, bez agenturní režie.</dd>
-              <dt>Pro koho</dt>
-              <dd>Malé firmy a živnostníky. Často řemeslníci, služby a spolky. Působím primárně na Znojemsku (Znojmo, okolí), weby ale dělám i pro klienty z celé ČR.</dd>
-              <dt>Co nabízím</dt>
-              <dd>Prezentační weby, UI/UX audit, návrh rozhraní ve Figmě, základní SEO, napojení na analytiku (po souhlasu s cookies), pomoc s texty a strukturou stránek.</dd>
-              <dt>Jak pracuji</dt>
-              <dd>Nejdřív si ujasníme cíl a rozsah, ukážu návrh, pak teprve stavím. Cenu domluvíme předem; odpovědi na běžné dotazy najdete v sekci FAQ na této stránce.</dd>
-              <dt>Kontakt</dt>
-              <dd>E-mail <a href="mailto:zdenek@zdenekpodany.cz">zdenek@zdenekpodany.cz</a>, telefon <a href="tel:+420735945421">+420 735 945 421</a>. Obvykle odpovím do 24 hodin.</dd>
-              <dt>Web</dt>
-              <dd>Hlavní stránka: <a href="https://zdenekpodany.cz/">zdenekpodany.cz</a> (včetně sekce O mně). Weby pro Znojmo: <a href="https://zdenekpodany.cz/tvorba-webu-znojmo">tvorba webu Znojmo</a>.</dd>
-            </dl>
-          </div>
-        </section>
+        <VKostceSection />
       </main>
 
       <Footer />

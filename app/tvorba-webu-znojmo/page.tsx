@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
-import MetricsBar from '@/components/sections/MetricsBar'
-import TestimonialsCarousel from '@/components/sections/TestimonialsCarousel'
-import PricingSection from '@/components/sections/PricingSection'
-import FaqList from '@/components/sections/FaqList'
-import ContactForm from '@/components/sections/ContactForm'
-import Footer from '@/components/layout/Footer'
+import dynamic from 'next/dynamic'
+
+const MetricsBar           = dynamic(() => import('@/components/sections/MetricsBar'))
+const TestimonialsCarousel = dynamic(() => import('@/components/sections/TestimonialsCarousel'))
+const PricingSection       = dynamic(() => import('@/components/sections/PricingSection'))
+const FaqList              = dynamic(() => import('@/components/sections/FaqList'))
+const ContactForm          = dynamic(() => import('@/components/sections/ContactForm'))
+const Footer               = dynamic(() => import('@/components/layout/Footer'))
+const ProcWebSection       = dynamic(() => import('@/components/sections/ProcWebSection'))
 
 export const metadata: Metadata = {
   title: 'Webovky a appky na míru Znojmo | Žádné šablony',
@@ -193,43 +196,7 @@ export default function TvorbaWebuZnojmoPage() {
         </section>
 
         {/* Proč má kvalitní web smysl */}
-        <section id="proc-web" className="section comparison">
-          <div className="container">
-            <h2 className="section-title">Proč má kvalitní web smysl i pro malou firmu?</h2>
-            <div className="comparison-table">
-              <div className="comparison-header">
-                <div className="comparison-cell comparison-cell--negative"><span className="comparison-icon comparison-icon--cross" aria-hidden="true"></span> Bez webu</div>
-                <div className="comparison-cell comparison-cell--positive"><span className="comparison-icon comparison-icon--check" aria-hidden="true"></span> S kvalitním webem</div>
-              </div>
-              {[
-                ['Zákazník si vás musí složitě dohledávat', 'Vše důležité najde během pár vteřin'],
-                ['Informace jen po telefonu nebo zprávách', 'Služby, ceny i reference přehledně online'],
-                ['Náhodný první dojem', 'Profesionální a důvěryhodná prezentace'],
-                ['Závislost jen na doporučení', 'Stabilní online vizitka, která pracuje 24/7'],
-                ['Konkurence působí silněji', 'Vy působíte stejně profesionálně — nebo lépe'],
-              ].map(([neg, pos], i) => (
-                <div key={i} className="comparison-row">
-                  <div className="comparison-cell comparison-cell--negative">
-                    <span className="comparison-cell-label">Bez webu</span>
-                    <span className="comparison-icon comparison-icon--cross" aria-hidden="true"></span> {neg}
-                  </div>
-                  <div className="comparison-cell comparison-cell--positive">
-                    <span className="comparison-cell-label">S kvalitním webem</span>
-                    <span className="comparison-icon comparison-icon--check" aria-hidden="true"></span> {pos}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="comparison-cta-button">
-              <a href="#kontakt" className="btn btn-primary">Chci jednoduchý a funkční web</a>
-            </div>
-            <p className="comparison-cta">
-              Kvalitní web dnes není luxus.<br />
-              Je to základní součást podnikání — stejně jako telefon nebo firemní auto.<br /><br />
-              A nemusí být složitý ani drahý.
-            </p>
-          </div>
-        </section>
+        <ProcWebSection />
 
         {/* Reference */}
         <section id="reference" className="section testimonials">
