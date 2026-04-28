@@ -29,10 +29,10 @@ export default function TvorbaWebuZnojmoPage() {
               <div className="hero-panel-overlay" aria-hidden="true"></div>
               <div className="hero-content">
                 <h1 className="hero-title">
-                  Webovky od někoho, kdo rozumí <span className="highlight">lidem</span>, ne jen kódu
+                  Tvorba webů ve Znojmě — od někoho, kdo tu <span className="highlight">žije</span> a zná region
                 </h1>
                 <p className="hero-subtitle">
-                  Hezký web nestačí. Záleží na tom, co návštěvník udělá. Stavím weby tak, aby návštěvník udělal to, co potřebuješ — zavolal, napsal, přišel.
+                  Zákazníci ve Znojmě a okolí hledají lokální firmy online každý den. Stavím weby, které je přivedou přímo k vám — ne ke konkurenci.
                 </p>
                 <div className="hero-cta-wrap">
                   <div className="hero-cta">
@@ -84,10 +84,10 @@ export default function TvorbaWebuZnojmoPage() {
             <div className="local-highlight">
               <h2 className="section-title">Osobní přístup ve Znojmě a okolí</h2>
               <p className="section-subtitle">
-                Bydlím nedaleko Znojma a rád se s vámi potkám osobně. Ať už jste živnostník z centra Znojma, řemeslník z okolních vesnic nebo majitel firmy v Pohořelicích či Hrušovanech – můžeme si vše projít u kávy a domluvit web přesně na míru vašemu podnikání.
+                Bydlím v Břežanech, pár kilometrů od Znojma. Znám zdejší region, zdejší podnikatele a zdejší zákazníky. Ať jste řemeslník z centra Znojma, vinař z Šatova nebo majitel penzionetu ve Vranovské přehradě — potkáme se osobně, probereme vše u kávy a domluvíme web přesně pro váš byznys.
               </p>
               <p className="section-subtitle" style={{ marginBottom: 0 }}>
-                Osobní konzultace je zdarma a nezavazuje. Napište mi a domluvíme termín.
+                Konzultace je zdarma a nezavazuje. Napište mi a domluvíme termín.
               </p>
             </div>
           </div>
@@ -99,13 +99,13 @@ export default function TvorbaWebuZnojmoPage() {
         {/* Služby */}
         <section id="sluzby" className="section services">
           <div className="container">
-            <h2 className="section-title">Co pro vás ve Znojmě připravím</h2>
+            <h2 className="section-title">Co pro znojemské podnikatele připravím</h2>
             <p className="section-subtitle">Tři varianty pro znojemské živnostníky a firmy. Všechny přehledné, funkční a bez zbytečné složitosti.</p>
             <div className="services-grid">
               <article className="service-card">
                 <div className="service-icon">01</div>
                 <h3>Jednoduchý prezentační web</h3>
-                <p>Ideální pro znojemské živnostníky – řemeslníky, obchody, služby. Profesionální vizitka na internetu: o vás, vaše služby a kontakt. Zákazníci z regionu vás snadno najdou.</p>
+                <p>Ideální pro znojemské živnostníky – řemeslníky, obchody, vinaře, ubytování. Profesionální vizitka na internetu: o vás, vaše služby a kontakt. Zákazníci z Jihomoravského kraje vás snadno najdou.</p>
               </article>
               <article className="service-card">
                 <div className="service-icon">02</div>
@@ -133,7 +133,7 @@ export default function TvorbaWebuZnojmoPage() {
               <div className="process-step">
                 <div className="step-number">1</div>
                 <h3>Napíšete mi nebo se potkáme</h3>
-                <p>Stačí pár vět – kdo jste, co děláte a co od webu očekáváte. Nebo se můžeme potkat osobně v Znojmě, Pohořelicích či Hrušovanech.</p>
+                <p>Stačí pár vět – kdo jste, co děláte a co od webu čekáte. Nebo se potkáme osobně: Znojmo, Moravský Krumlov, Hrušovany, Pohořelice — přijedu k vám.</p>
               </div>
               <div className="process-step">
                 <div className="step-number">2</div>
@@ -256,7 +256,7 @@ export default function TvorbaWebuZnojmoPage() {
         <section id="kontakt" className="section contact">
           <div className="container">
             <h2 className="section-title">Napište mi</h2>
-            <p className="section-subtitle">Máte dotaz nebo chcete začít? Napište, co potřebujete – ozvu se co nejdřív. Rád se s vámi potkám osobně ve Znojmě nebo okolí.</p>
+            <p className="section-subtitle">Máte dotaz nebo chcete začít? Napište, co potřebujete — ozvu se do 24 hodin. Jste ze Znojemska? Rád se s vámi potkám osobně.</p>
             <ContactForm />
             <p className="contact-alternative">Nebo mi napište přímo na <a href="mailto:zdenek@zdenekpodany.cz">zdenek@zdenekpodany.cz</a></p>
           </div>
