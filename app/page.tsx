@@ -43,7 +43,7 @@ const ldJsonLocalBusiness = {
     { '@type': 'City', name: 'Pohořelice' },
     { '@type': 'City', name: 'Hrušovany nad Jevišovkou' },
   ],
-  dateModified: '2026-04-24',
+  dateModified: '2026-04-30',
 }
 
 const ldJsonGraph = {
@@ -143,13 +143,13 @@ export default function HomePage() {
               </div>
             </div>
             <div className="showcase-grid">
-              <a href="https://izolacekracman.cz" target="_blank" rel="noopener" className="showcase-card showcase-card--featured reveal">
-                <img src="/img/izolacekracmanznojmo.webp" alt="Izolace Petr Kráčman – web pro izolace" loading="lazy" />
+              <a href="https://j-mont.cz" target="_blank" rel="noopener" className="showcase-card showcase-card--featured showcase-card--jmont reveal">
+                <img src="/img/showcase-jmont.webp" alt="Stavební firma j-mont – web pro stavební firmu" loading="lazy" />
                 <div className="showcase-cap">
-                  <p className="showcase-story">Petr měl živnost rozjetou, ale online byl jen bod na Google Maps. Teď má web, který zákazníkům ukáže, co dělá, a jak ho kontaktovat.</p>
+                  <p className="showcase-story">Přechod z pomalého zastaralého Webnode webu pomohl stavební firmě k profesionální online prezentaci a větší důvěř nových zákazníků.</p>
                   <div className="showcase-foot">
-                    <span className="showcase-title">Izolace Petr Kráčman</span>
-                    <span className="showcase-domain">izolacekracman.cz ↗</span>
+                    <span className="showcase-title">Stavební firma j-mont</span>
+                    <span className="showcase-domain">j-mont.cz ↗</span>
                   </div>
                 </div>
               </a>

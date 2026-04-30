@@ -1787,6 +1787,36 @@ body {
   color: #93c5fd;
 }
 
+/* j-mont green theme overrides */
+.showcase-card--jmont::after {
+  background: #5A9B5B;
+}
+
+.showcase-card--jmont .showcase-cap {
+  background: linear-gradient(
+    to top,
+    rgba(8, 22, 8, 0.97) 0%,
+    rgba(8, 22, 8, 0.76) 28%,
+    rgba(8, 22, 8, 0.18) 60%,
+    transparent 100%
+  );
+  transition: background 0.4s ease;
+}
+
+.showcase-card--jmont:hover .showcase-cap {
+  background: linear-gradient(
+    to top,
+    rgba(12, 36, 12, 0.97) 0%,
+    rgba(20, 52, 20, 0.78) 28%,
+    rgba(30, 65, 30, 0.22) 60%,
+    transparent 100%
+  );
+}
+
+.showcase-card--jmont:hover .showcase-domain {
+  color: #a3d4a4;
+}
+
 /* CTA below grid */
 .showcase-cta {
   text-align: center;
