@@ -8,10 +8,11 @@ const GA_ID = 'G-HVYTTEV5WY'
 function loadGA() {
   if (typeof window === 'undefined') return
   window.dataLayer = window.dataLayer || []
-  function gtag(...args: unknown[]) { window.dataLayer.push(args) }
-  window.gtag = gtag
-  ;(window.gtag as (...args: unknown[]) => void)('js', new Date())
-  ;(window.gtag as (...args: unknown[]) => void)('config', GA_ID)
+  // eslint-disable-next-line prefer-rest-params
+  function gtag() { window.dataLayer.push(arguments) }
+  window.gtag = gtag as (...args: unknown[]) => void
+  window.gtag('js', new Date())
+  window.gtag('config', GA_ID)
   const s = document.createElement('script')
   s.async = true
   s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
