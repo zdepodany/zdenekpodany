@@ -107,7 +107,7 @@ export default function Footer({ blogFooter = false }: { blogFooter?: boolean })
                 <li><a href="/#o-mne">O mně</a></li>
                 <li><Link href="/tvorba-webu-znojmo">Tvorba webu Znojmo</Link></li>
                 <li><Link href="/blog">Blog</Link></li>
-                <li><a href="https://countdownerapp.figma.site" target="_blank" rel="noopener">Countdowner App</a></li>
+                <li><a href="https://countdowner.zdenekpodany.cz" target="_blank" rel="noopener">Countdowner App</a></li>
                 <li><Link href="/vseobecne-obchodni-podminky">Obchodní podmínky</Link></li>
                 <li><Link href="/zasady-ochrany-osobnich-udaju">Ochrana osobních údajů</Link></li>
               </>

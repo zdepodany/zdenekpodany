@@ -43,7 +43,7 @@ const ldJsonLocalBusiness = {
     { '@type': 'City', name: 'Pohořelice' },
     { '@type': 'City', name: 'Hrušovany nad Jevišovkou' },
   ],
-  dateModified: '2026-04-30',
+  dateModified: '2026-05-23',
 }
 
 const ldJsonGraph = {

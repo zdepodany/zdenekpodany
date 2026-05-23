@@ -4,6 +4,8 @@ interface PricingCard {
   label: string
   title: string
   price: string
+  salePrice?: string
+  discountPct?: number
   description: string
   features: string[]
   featured?: boolean
@@ -17,6 +19,8 @@ const CARDS: PricingCard[] = [
     label: 'Základ',
     title: 'Jednoduchý prezentační web',
     price: 'od 14 900 Kč',
+    salePrice: '1 990 Kč',
+    discountPct: 87,
     description: 'Základní web, který za vás pracuje i když spíte.',
     features: [
       'Design na míru podle vašeho podnikání',
@@ -31,6 +35,8 @@ const CARDS: PricingCard[] = [
     label: 'Doporučuji',
     title: 'Web na rozjezd podnikání',
     price: 'od 19 900 Kč',
+    salePrice: '2 990 Kč',
+    discountPct: 85,
     description: 'Web připravený přivést první zákazníky. Většina projektů vychází na 19 900–30 000 Kč podle rozsahu.',
     features: [
       'Design na míru podle vašeho podnikání',
@@ -49,6 +55,8 @@ const CARDS: PricingCard[] = [
     label: 'Analýza',
     title: 'UI/UX Audit',
     price: 'od 3 900 Kč',
+    salePrice: '2 900 Kč',
+    discountPct: 26,
     description: 'Osobně nebo online projdeme váš web a přesně pojmenujeme, co zákazníky odrazuje.',
     features: [
       'Řízený průchod webem či rozhraním',
@@ -67,13 +75,29 @@ export default function PricingSection() {
       <div className="container">
         <h2 className="section-title">Orientační ceník</h2>
         <p className="section-subtitle">Transparentní odhady – u každé služby víte, do čeho jdete.</p>
+        <div className="pricing-sale-banner">
+          <svg viewBox="0 0 16 16" fill="currentColor" width="14" height="14" aria-hidden="true">
+            <path d="M8 1l1.8 3.6 4 .6-2.9 2.8.7 4L8 10l-3.6 1.9.7-4L2.2 5.2l4-.6L8 1z"/>
+          </svg>
+          Letní akce — ceny platí do <strong>30. 6. 2026</strong>
+        </div>
         <div className="pricing-grid">
           {CARDS.map((card, i) => (
             <div key={i} className={`pricing-card reveal${card.featured ? ' featured' : ''}`}>
               {card.badge && <span className="pricing-badge">{card.badge}</span>}
               <div className="pricing-card-label">{card.label}</div>
               <h3>{card.title}</h3>
-              <div className="price">{card.price}</div>
+              {card.salePrice ? (
+                <div className="pricing-price-wrap">
+                  <div className="price price--sale">{card.salePrice}</div>
+                  <div className="price-meta">
+                    <span className="price-original">{card.price}</span>
+                    <span className="price-discount-badge">-{card.discountPct}&nbsp;%</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="price">{card.price}</div>
+              )}
               <div className="pricing-divider"></div>
               <p>{card.description}</p>
               <ul className="pricing-features">
