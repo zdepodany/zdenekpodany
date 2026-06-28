@@ -61,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           id="netlify-identity-redirect"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: `if(window.netlifyIdentity){window.netlifyIdentity.on("init",function(user){if(!user){window.netlifyIdentity.on("login",function(){document.location.href="/admin/"})}})}`,
+            __html: `if(window.netlifyIdentity){window.netlifyIdentity.init({APIUrl:"https://zdenekpodany-web.netlify.app/.netlify/identity"});window.netlifyIdentity.on("init",function(user){if(!user){window.netlifyIdentity.on("login",function(){document.location.href="/admin/"})}})}`,
           }}
         />
         <Script
