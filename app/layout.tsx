@@ -54,17 +54,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Analytics />
         <SpeedInsights />
         <Script
-          src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="netlify-identity-redirect"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `if(window.netlifyIdentity){window.netlifyIdentity.init({APIUrl:"https://zdenekpodany-web.netlify.app/.netlify/identity"});window.netlifyIdentity.on("init",function(user){if(!user){window.netlifyIdentity.on("login",function(){document.location.href="/admin/"})}})}`,
-          }}
-        />
-        <Script
           id="clarity"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
