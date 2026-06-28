@@ -1,4 +1,7 @@
 {
   "buildCommand": "pnpm build",
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/admin", "destination": "/admin/index.html", "permanent": false }
+  ]
 }
