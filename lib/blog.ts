@@ -58,7 +58,7 @@ export function getAllPostsMeta(): BlogPostMeta[] {
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost> {
-  const fullPath = path.join(contentDir, `${slug}.md`)
+  const fullPath = path.join(contentDir, `${decodeURIComponent(slug)}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
   const processed = await remark().use(html).process(content)

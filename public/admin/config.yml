@@ -5,6 +5,10 @@ backend:
   base_url: https://zdenekpodany.cz
   auth_endpoint: api/auth
 
+slug:
+  encoding: ascii
+  clean_accents: true
+
 media_folder: public/img
 public_folder: /img
 
