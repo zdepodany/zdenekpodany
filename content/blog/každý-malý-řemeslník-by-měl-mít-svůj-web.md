@@ -3,6 +3,7 @@ title: Každý malý řemeslník by měl mít svůj web
 description: Malé zamyšlení nad tím jak to dnes je s online přítomnosti menších
   firem a živnostníků.
 date: 2026-06-28
+image: /img/sni-mek-obrazovky-2026-06-29-v-7.26.18.webp
 tags:
   - blog
   - web
