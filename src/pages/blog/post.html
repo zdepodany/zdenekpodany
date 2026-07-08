@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<!--include:head-common-->
+<title>{{TITLE}} | Zdeněk Podaný</title>
+<meta name="description" content="{{DESCRIPTION}}" />
+<link rel="canonical" href="https://zdenekpodany.cz/blog/{{SLUG}}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{TITLE}}" />
+<meta property="og:description" content="{{DESCRIPTION}}" />
+</head>
+<body>
+<!--include:header-->
+
+<main class="blog-post">
+  <div class="blog-post-container">
+    <a href="/blog" class="blog-post-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Zpět na blog
+    </a>
+
+    <article>
+      <header class="blog-post-header">
+        <div class="blog-post-meta">
+          <time datetime="{{DATE}}">{{DATE_READABLE}}</time>
+          <!--BLOG_TAGS-->
+        </div>
+        <h1 class="blog-post-title">{{TITLE}}</h1>
+        <!--BLOG_LEAD-->
+      </header>
+
+      <!--BLOG_HERO-->
+
+      <div class="blog-post-body">
+        <!--BLOG_CONTENT-->
+      </div>
+
+      <footer class="blog-post-footer">
+        <a href="/blog" class="blog-post-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Zpět na blog
+        </a>
+      </footer>
+    </article>
+  </div>
+</main>
+
+<!--include:footer-blog-->
+<!--include:cookie-consent-->
+<!--include:scripts-->
+</body>
+</html>
