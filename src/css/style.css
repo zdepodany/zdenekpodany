@@ -1345,49 +1345,58 @@ body {
 
 /* ========== Proč má kvalitní web smysl (porovnání) ========== */
 /* Dvě třídy = stejná specificita jako .section:nth-child(even); toto pravidlo je v souboru později → tmavé pozadí zůstane */
-/* ========== Proč web – redesigned ========== */
+/* ========== Proč web – SHADOW-DESIGN.md (AC Shadows x brand), demo ==========
+   Tokeny jsou lokálně naskopované pod .proc-web-section (--sd-*), aby
+   nekolidovaly s globálními světlými tokeny --bg/--text/--border definovanými
+   v :root výše. Hodnoty odpovídají 1:1 sekci 2 SHADOW-DESIGN.md. */
 .proc-web-section {
+  --sd-bg: #0a0e1a;
+  --sd-surface: #131a2b;
+  --sd-surface-active: #1b2434;
+  --sd-text: #eef2f8;
+  --sd-text-muted: #9aa4b8;
+  --sd-text-dim: #5c6880;
+  --sd-accent: #006dec;
+  --sd-accent-light: #3d8ef7;
+  --sd-accent-soft: rgba(0, 109, 236, 0.12);
+  --sd-border: rgba(255, 255, 255, 0.1);
+  --sd-border-strong: rgba(255, 255, 255, 0.18);
+  --sd-divider: rgba(255, 255, 255, 0.06);
+  --sd-ring-glow: 0 0 0 1px rgba(0, 109, 236, 0.55), 0 0 18px rgba(0, 109, 236, 0.2);
+  --sd-radius: 12px;
+  --sd-radius-lg: 20px;
+  --sd-shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.45);
+  --sd-transition: 0.2s ease;
+
   position: relative;
-  background: #0b0d1a;
+  background: var(--sd-bg);
   padding: 96px 0 104px;
   overflow: hidden;
 }
 
-/* Subtle dot-grid background texture */
+/* žádná dekorativní textura na pozadí – "klid a prostor" */
 .proc-web-bg-grid {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
-  mask-image: radial-gradient(ellipse 80% 70% at 60% 50%, black 30%, transparent 100%);
+  display: none;
 }
 
-/* Ambient glow top-right */
+/* jediný barevný moment sekce: tlumená modrá záře za intro blokem */
 .proc-web-section::before {
   content: '';
   position: absolute;
-  top: -120px;
-  right: -80px;
-  width: 560px;
-  height: 560px;
-  background: radial-gradient(circle, rgba(0,109,236,0.14) 0%, transparent 70%);
+  top: -140px;
+  left: -120px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, var(--sd-accent-soft) 0%, transparent 70%);
   pointer-events: none;
 }
 
-/* Ambient glow bottom-left */
 .proc-web-section::after {
-  content: '';
-  position: absolute;
-  bottom: -100px;
-  left: -60px;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(0,109,236,0.07) 0%, transparent 70%);
-  pointer-events: none;
+  content: none;
 }
 
 .proc-web-container {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
@@ -1404,47 +1413,85 @@ body {
 }
 
 .proc-web-eyebrow {
-  display: inline-block;
-  font-size: 0.75rem;
+  display: block;
+  font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--primary-light);
-  margin-bottom: 20px;
-  padding: 4px 12px;
-  border: 1px solid rgba(0,109,236,0.3);
-  border-radius: 100px;
-  background: rgba(0,109,236,0.08);
+  color: var(--sd-text-muted);
+  margin-bottom: 16px;
 }
 
 .proc-web-title {
-  font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+  font-size: clamp(1.75rem, 3.2vw, 2.125rem);
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-  color: rgba(255,255,255,0.95);
-  margin-bottom: 20px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--sd-text);
+  margin-bottom: 16px;
 }
 
 .proc-web-title-accent {
-  color: var(--primary-light);
+  color: var(--sd-accent-light);
 }
 
 .proc-web-lead {
   font-size: 1rem;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 36px;
+  line-height: 1.6;
+  color: var(--sd-text-muted);
+  margin-bottom: 32px;
   max-width: 34ch;
 }
 
+/* primární CTA dle 4.7 – jediné plně barevné místo sekce */
 .proc-web-cta-btn {
   display: inline-flex;
+  background: var(--sd-accent);
+  color: #fff;
+  border-radius: var(--sd-radius);
+  padding: 14px 28px;
+  font-weight: 600;
+  transition: background var(--sd-transition), box-shadow var(--sd-transition);
+}
+
+.proc-web-cta-btn:hover {
+  background: var(--sd-accent-light);
+  box-shadow: var(--sd-shadow-lg);
+}
+
+.proc-web-cta-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--sd-ring-glow);
 }
 
 /* ---- Right: comparison table ---- */
 .proc-web-table-wrap {
   position: relative;
+  padding: 16px;
+}
+
+/* rohové závorky (4.2) – použité střídmě, jen na rámu celé tabulky */
+.proc-web-table-wrap::before,
+.proc-web-table-wrap::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+
+.proc-web-table-wrap::before {
+  top: 0;
+  left: 0;
+  border-top: 1px solid var(--sd-border-strong);
+  border-left: 1px solid var(--sd-border-strong);
+}
+
+.proc-web-table-wrap::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px solid var(--sd-border-strong);
+  border-right: 1px solid var(--sd-border-strong);
 }
 
 .proc-web-col-headers {
@@ -1455,38 +1502,44 @@ body {
 }
 
 .proc-web-col-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 0 20px 10px;
 }
 
 .proc-web-col-label--neg {
-  color: rgba(255,255,255,0.3);
+  color: var(--sd-text-dim);
 }
 
 .proc-web-col-label--pos {
-  color: var(--primary-light);
+  color: var(--sd-accent-light);
 }
 
 .proc-web-rows {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
+/* settings-row (4.1): jeden zaoblený řádek, dvě poloviny oddělené jemným divideru */
 .proc-web-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-radius: 14px;
+  border: 1px solid var(--sd-border);
+  border-radius: var(--sd-radius);
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.06);
-  transition: border-color 0.25s ease;
+  transition: border-color var(--sd-transition);
 }
 
 .proc-web-row:hover {
-  border-color: rgba(0,109,236,0.3);
+  border-color: var(--sd-border-strong);
+}
+
+.proc-web-row:focus-within {
+  border-color: transparent;
+  box-shadow: var(--sd-ring-glow);
 }
 
 .proc-web-cell {
@@ -1496,28 +1549,27 @@ body {
   padding: 18px 20px;
   font-size: 0.9rem;
   line-height: 1.55;
-  transition: background 0.2s ease;
+  transition: background var(--sd-transition);
 }
 
 .proc-web-cell--neg {
-  background: rgba(255,255,255,0.03);
-  color: rgba(255,255,255,0.4);
-  border-right: 1px solid rgba(255,255,255,0.06);
+  background: var(--sd-surface);
+  color: var(--sd-text-muted);
+  border-right: 1px solid var(--sd-divider);
 }
 
 .proc-web-row:hover .proc-web-cell--neg {
-  background: rgba(255,255,255,0.04);
+  background: var(--sd-surface-active);
 }
 
 .proc-web-cell--pos {
-  background: rgba(0,109,236,0.08);
-  color: rgba(255,255,255,0.88);
-  /* liquid glass inner border */
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+  background: var(--sd-surface);
+  color: var(--sd-text);
+  box-shadow: inset 0 0 0 9999px var(--sd-accent-soft);
 }
 
 .proc-web-row:hover .proc-web-cell--pos {
-  background: rgba(0,109,236,0.14);
+  background: var(--sd-surface-active);
 }
 
 .proc-web-icon {
@@ -1526,12 +1578,13 @@ body {
   display: flex;
 }
 
+/* jediná barevná akcentní barva rozhraní je brand modrá – kříž zůstává neutrální */
 .proc-web-icon--cross {
-  color: rgba(239,68,68,0.65);
+  color: var(--sd-text-dim);
 }
 
 .proc-web-icon--check {
-  color: #60a5fa;
+  color: var(--sd-accent-light);
 }
 
 .proc-web-cell-text {
@@ -1547,7 +1600,7 @@ body {
 
   .proc-web-intro {
     position: static;
-    text-align: center;
+    text-align: left;
   }
 
   .proc-web-lead {
@@ -1555,7 +1608,7 @@ body {
   }
 
   .proc-web-title {
-    font-size: clamp(1.65rem, 5vw, 2.2rem);
+    font-size: clamp(1.6rem, 5vw, 1.9rem);
   }
 }
 
@@ -1569,28 +1622,31 @@ body {
     gap: 36px;
   }
 
+  .proc-web-table-wrap {
+    padding: 10px;
+  }
+
   .proc-web-col-headers {
     display: none;
   }
 
   .proc-web-row {
     grid-template-columns: 1fr;
-    border-radius: 12px;
   }
 
   .proc-web-cell--neg {
     border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid var(--sd-divider);
   }
 
   .proc-web-cell--neg::before {
     content: 'Bez webu';
     display: block;
     font-size: 0.65rem;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: rgba(239,68,68,0.6);
+    color: var(--sd-text-dim);
     margin-bottom: 6px;
     flex-basis: 100%;
     order: -1;
@@ -1600,10 +1656,10 @@ body {
     content: 'S kvalitním webem';
     display: block;
     font-size: 0.65rem;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #60a5fa;
+    color: var(--sd-accent-light);
     margin-bottom: 6px;
     flex-basis: 100%;
     order: -1;
