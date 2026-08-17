@@ -116,7 +116,7 @@ body {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(0, 0, 0, 0.07);
-  border-radius: 16px;
+  border-radius: 100px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
@@ -202,27 +202,9 @@ body {
   white-space: nowrap;
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 11px;
-  right: 11px;
-  height: 1.5px;
-  background: var(--primary);
-  border-radius: 2px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.24s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .nav-link:hover {
   color: var(--primary);
   background: var(--primary-soft);
-}
-
-.nav-link:hover::after {
-  transform: scaleX(1);
 }
 
 /* Desktop CTA */
