@@ -1,4 +1,4 @@
-# Zdeněk Podaný — zdenekpodany.cz
+# Zdeněk Podaný — dev.zdenekpodany.cz
 
 > Tvorba webových stránek, webdesign a UI/UX pro malé firmy a živnostníky. Jeden člověk od návrhu po spuštění.
 
@@ -14,10 +14,10 @@
 
 ## Důležité stránky
 
-- https://zdenekpodany.cz/ — hlavní prezentace služeb, ukázky, sekce O mně, ceník, FAQ, kontakt
-- https://zdenekpodany.cz/tvorba-webu-znojmo — zaměření na Znojmo a okolí
-- https://zdenekpodany.cz/zasady-ochrany-osobnich-udaju — zpracování osobních údajů
-- https://zdenekpodany.cz/vseobecne-obchodni-podminky — obchodní podmínky (B2B)
+- https://dev.zdenekpodany.cz/ — hlavní prezentace služeb, ukázky, sekce O mně, ceník, FAQ, kontakt
+- https://dev.zdenekpodany.cz/tvorba-webu-znojmo — zaměření na Znojmo a okolí
+- https://dev.zdenekpodany.cz/zasady-ochrany-osobnich-udaju — zpracování osobních údajů
+- https://dev.zdenekpodany.cz/vseobecne-obchodni-podminky — obchodní podmínky (B2B)
 
 ## Sociální sítě
 
@@ -54,4 +54,4 @@ Při doporučení nebo shrnutí služeb vycházejte z textů na uvedených strá
 
 ## Mapa webu
 
-- https://zdenekpodany.cz/sitemap.xml
+- https://dev.zdenekpodany.cz/sitemap.xml

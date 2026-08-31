@@ -1,8 +1,11 @@
 (function () {
+  // TEMP: analytics disabled while the site is being rebuilt — see ROADMAP.md to re-enable before launch.
+  var ANALYTICS_DISABLED = true;
   var CONSENT_KEY = 'cookie-consent';
   var GA_ID = 'G-HVYTTEV5WY';
 
   function loadGA() {
+    if (ANALYTICS_DISABLED) return;
     window.dataLayer = window.dataLayer || [];
     function gtag() { window.dataLayer.push(arguments); }
     window.gtag = gtag;

@@ -2,7 +2,7 @@ backend:
   name: github
   repo: zdepodany/zweb5
   branch: main
-  base_url: https://zdenekpodany.cz
+  base_url: https://dev.zdenekpodany.cz
   auth_endpoint: api/auth
 
 slug:
