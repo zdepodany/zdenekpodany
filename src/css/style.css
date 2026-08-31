@@ -910,6 +910,7 @@ body {
   padding: 40px 32px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 /* Higher specificity than .reveal so scroll-reveal.js's transition (added at runtime) can't override this.
@@ -1028,6 +1029,89 @@ a.service-card {
 @media (max-width: 768px) {
   .section-cta {
     margin-top: 40px;
+  }
+}
+
+/* ========== Co dostanete (rozsah) ========== */
+.scope-intro {
+  max-width: 640px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin: 0 0 40px;
+}
+
+.scope-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 48px;
+}
+
+.scope-list li {
+  position: relative;
+  padding-left: 30px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.scope-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.scope-list li a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 109, 236, 0.35);
+  text-underline-offset: 2px;
+}
+
+.scope-list li a:hover {
+  text-decoration-color: currentColor;
+}
+
+.scope-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--primary-soft);
+  border: 1px solid rgba(0, 109, 236, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  margin-top: 40px;
+}
+
+.scope-note-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scope-note p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .scope-list {
+    grid-template-columns: 1fr;
   }
 }
 
