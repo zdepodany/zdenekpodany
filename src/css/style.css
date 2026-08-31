@@ -192,19 +192,39 @@ body {
 
 .nav-link {
   position: relative;
+  z-index: 0;
   color: var(--text-muted);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.875rem;
-  padding: 6px 11px;
-  border-radius: 8px;
-  transition: color 0.18s ease, background-color 0.18s ease;
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: color 0.18s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   white-space: nowrap;
 }
 
+.nav-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .nav-link:hover {
-  color: var(--primary);
-  background: var(--primary-soft);
+  color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px -8px rgba(15, 23, 42, 0.2);
+}
+
+.nav-link:hover::before {
+  transform: scaleX(1);
 }
 
 /* Desktop CTA */
@@ -222,8 +242,29 @@ body {
   letter-spacing: 0.01em;
   text-decoration: none;
   flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
   box-shadow: 0 4px 14px rgba(0, 109, 236, 0.28);
   transition: box-shadow 0.25s ease, transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease;
+}
+
+.nav-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-130%);
+  pointer-events: none;
+}
+
+.nav-cta:hover::after {
+  animation: nav-cta-sheen 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes nav-cta-sheen {
+  to {
+    transform: translateX(130%);
+  }
 }
 
 .nav-cta svg {
