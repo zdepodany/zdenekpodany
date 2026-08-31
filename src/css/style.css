@@ -847,30 +847,61 @@ body {
 /* ========== Služby ========== */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
 
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .service-card {
+  display: block;
   background: var(--bg);
   padding: 40px 32px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
-  transition: all var(--transition);
+}
+
+/* Higher specificity than .reveal so scroll-reveal.js's transition (added at runtime) can't override this.
+   Includes opacity and transform so the entrance fade/slide (driven by .reveal/.in-view) keeps
+   transitioning too, since this rule wins the whole transition-property list once it applies. */
+a.service-card {
+  transition: opacity 0.6s ease,
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
 }
 
 .service-card:hover {
-  border-color: var(--primary);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
+  border-color: rgba(0, 109, 236, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 109, 236, 0.07);
 }
 
 .service-icon {
-  font-size: 2.5rem;
-  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--primary-soft);
   color: var(--primary);
-  opacity: 0.3;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.service-icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 .service-card h3 {
@@ -882,6 +913,28 @@ body {
 .service-card p {
   color: var(--text-muted);
   font-size: 1rem;
+}
+
+.service-card-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-top: 24px;
+  margin-left: auto;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease,
+              transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover .service-card-arrow {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  transform: translateX(3px);
 }
 
 .services-cta {
@@ -2680,6 +2733,8 @@ body {
 .services-grid .reveal:nth-child(1) { transition-delay: 0s; }
 .services-grid .reveal:nth-child(2) { transition-delay: 0.1s; }
 .services-grid .reveal:nth-child(3) { transition-delay: 0.2s; }
+.services-grid .reveal:nth-child(4) { transition-delay: 0.3s; }
+.services-grid .reveal:nth-child(5) { transition-delay: 0.4s; }
 
 .process-steps .reveal:nth-child(1) { transition-delay: 0s; }
 .process-steps .reveal:nth-child(2) { transition-delay: 0.08s; }
