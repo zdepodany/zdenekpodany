@@ -12,23 +12,19 @@
 <!--include:header-->
 
 <main>
-  <section class="hero">
+  <section class="hero hero--noimg">
     <div class="hero-inner container">
       <div class="hero-panel">
-        <div class="hero-panel-media" aria-hidden="true">
-          <picture>
-            <source media="(max-width: 959px)" srcset="/img/hero-s.webp" type="image/webp" />
-            <img class="hero-panel-img" src="/img/hero.webp" alt="" width="2688" height="1949" fetchpriority="high" decoding="async" />
-          </picture>
-        </div>
-        <div class="hero-panel-overlay" aria-hidden="true"></div>
         <div class="hero-content">
+          <div class="hero-eyebrow" aria-hidden="true">
+            <span class="hero-eyebrow-line"></span>
+            <span>Tvorba webu na míru</span>
+          </div>
           <h1 class="hero-title">Web, který vás na internetu <span class="highlight">zastupuje</span></h1>
           <p class="hero-subtitle">Nemáte web, nebo teprve začínáte podnikat? Postavím vám místo, kam pošlete každého, kdo se zeptá, co děláte.</p>
           <div class="hero-cta-wrap">
             <div class="hero-cta">
               <a href="#kontakt" class="btn btn-primary">Chci cenovou nabídku</a>
-              <a href="#cena" class="btn btn-secondary">Kolik to stojí?</a>
             </div>
             <p class="hero-cta-micro">Bez závazků, odpovím do 24 hodin.</p>
           </div>
@@ -63,60 +59,37 @@
 
   <section id="rozsah" class="section">
     <div class="container">
-      <h2 class="section-title">Co všechno dostanete</h2>
-      <p class="scope-intro">Každý web navrhuji od nuly podle vašeho podnikání, žádné šablony ani hotové vzory. To je moje silná stránka a nejradši to dělám právě takhle.</p>
-      <ul class="scope-list">
-        <li>Návrh na míru vašemu podnikání, ne šablona</li>
-        <li>Pomoc s texty i strukturou stránek</li>
-        <li>Mobilní verze webu automaticky, bez příplatku</li>
-        <li>Kontaktní formulář, mapa, případně rezervační systém nebo CMS</li>
-        <li>Základní <a href="/seo">SEO nastavení</a>, ať vás lidé najdou na Googlu</li>
-        <li>Přístupy a podklady k webu vždy dostanete od začátku vy</li>
-      </ul>
-      <div class="scope-note">
-        <span class="scope-note-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 18 18" fill="none"><path d="M3 9l6-5 6 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 8v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <p>Web je váš majetek, ne pronájem. Spravuju ho pro vás, ale kdykoli budete chtít, předám vám přístupy a podklady a spravovat si ho můžete sami.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="cena" class="section pricing">
-    <div class="container">
-      <h2 class="section-title">Varianty a ceny</h2>
-      <p class="section-subtitle">Dvě varianty na začátek. Přesnou cenu vždy znáte předem.</p>
-      <div class="pricing-grid">
-        <div class="pricing-card reveal">
-          <div class="pricing-card-label">Základ</div>
-          <h3>Jednoduchý prezentační web</h3>
-          <div class="price">od 11 900 Kč</div>
-          <div class="pricing-divider"></div>
-          <p>Základní web, který za vás pracuje i když spíte.</p>
-          <ul class="pricing-features">
-            <li>Design na míru podle vašeho podnikání</li>
-            <li>Jednostránkový web</li>
-            <li>Hotovo do 5–7 dní</li>
-          </ul>
-          <a href="#kontakt" class="btn btn-secondary btn-full pricing-card-btn">Mám zájem</a>
+      <h2 class="section-title">Co dostanete</h2>
+      <p class="section-subtitle">Každý web je originál a stavím ho na míru podle toho, co děláte a jaký je váš cíl.</p>
+      <div class="scope-grid">
+        <div class="scope-card">
+          <span class="scope-card-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <p>Návrh na míru podle vašeho podnikání/cíle</p>
         </div>
-        <div class="pricing-card reveal featured">
-          <span class="pricing-badge">Nejoblíbenější</span>
-          <div class="pricing-card-label">Doporučuji</div>
-          <h3>Web na rozjezd podnikání</h3>
-          <div class="price">od 19 900 Kč</div>
-          <div class="pricing-divider"></div>
-          <p>Web připravený přivést první zákazníky.</p>
-          <ul class="pricing-features">
-            <li>Design na míru podle vašeho podnikání</li>
-            <li>Web s až 5 podstránkami</li>
-            <li>Kontaktní formulář</li>
-            <li>Nastavení custom emailu</li>
-            <li>Hotovo do 2–4 týdnů</li>
-          </ul>
-          <a href="#kontakt" class="btn btn-full pricing-card-btn pricing-card-btn--featured">Chci tento web</a>
+        <div class="scope-card">
+          <span class="scope-card-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <p>Web fungující na mobilech</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-card-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <p>Základní nastavení <a href="/seo">SEO a GEO</a>, ať vás najde Google i ChatGPT</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-card-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <p>Pomoc s texty a správnou strukturou</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-card-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <p>Kontaktní formulář, mapa, rezervační systém nebo systém pro úpravu vašeho webu (bez znalosti kódování)</p>
+        </div>
+        <div class="scope-card">
+          <span class="scope-card-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <p>Někoho, kdo je vždycky na příjmu, když budete něco potřebovat</p>
         </div>
       </div>
-      <p class="pricing-note">Přesnou cenu vždy víte předem. Bez překvapení a skrytých poplatků.</p>
-      <p class="pricing-note">Weby, kde si obsah upravujete sami přes redakční systém (CMS), jsou dražší – připočítává se nastavení administrace a systému okolo. Přesný rozsah probereme podle toho, co potřebujete.</p>
+      <div class="section-cta">
+        <a href="#kontakt" class="btn btn-primary">Jdu do toho</a>
+      </div>
     </div>
   </section>
 
@@ -125,6 +98,12 @@
       <h2 class="section-title">Jak to probíhá – bez stresu</h2>
       <p class="section-subtitle">Všechno složité řeším já. Vy mi řeknete, co potřebujete, a já to dodám.</p>
       <div class="process-steps">
+        <svg class="process-line process-line--desktop" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M12.5,32 C20,6 25,58 37.5,32 C50,6 55,58 62.5,32 C75,6 80,58 87.5,32" />
+        </svg>
+        <svg class="process-line process-line--mobile" viewBox="0 0 60 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M30,12.5 C4,20 56,25 30,37.5 C4,50 56,55 30,62.5 C4,75 56,80 30,87.5" />
+        </svg>
         <div class="process-step reveal">
           <div class="step-number">1</div>
           <h3>Napíšete mi, co potřebujete</h3>
