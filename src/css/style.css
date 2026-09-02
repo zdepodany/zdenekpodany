@@ -1067,6 +1067,10 @@ a.service-card {
   display: none;
 }
 
+.process-connector {
+  display: none;
+}
+
 .process-step {
   position: relative;
   z-index: 1;
@@ -1131,16 +1135,53 @@ a.service-card {
   }
 
   .process-line--mobile {
-    display: block;
-    top: 0;
-    left: 0;
-    width: 60px;
-    height: 100%;
+    display: none;
   }
 
   .process-step {
     padding: 0 20px 40px 84px;
     text-align: left;
+  }
+
+  .process-connector {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    top: 30px;
+    left: 0;
+    width: 60px;
+    height: calc(100% + 30px);
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  .process-connector path {
+    fill: none;
+    stroke: var(--primary);
+    stroke-opacity: 0.3;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 0.5 9;
+    vector-effect: non-scaling-stroke;
+    /* Wave variant system: shape auto-cycles per connector via nth-of-type
+       below, independent of the actual pixel height (set by the SVG's
+       preserveAspectRatio="none" + the element's own height). The `d`
+       attribute on the <path> (variant 1) is the fallback for browsers
+       without CSS `d` support (pre-Safari 16.4). */
+    d: path("M30,0 C4,30 56,50 30,100");
+  }
+
+  /* 4-step repeating cycle so any number of steps keeps varying shapes */
+  .process-step:nth-of-type(4n+2) .process-connector path {
+    d: path("M30,0 C56,30 4,50 30,100");
+  }
+
+  .process-step:nth-of-type(4n+3) .process-connector path {
+    d: path("M30,0 C4,20 56,32 30,50 C4,68 56,80 30,100");
+  }
+
+  .process-step:nth-of-type(4n) .process-connector path {
+    d: path("M30,0 C56,20 4,32 30,50 C56,68 4,80 30,100");
   }
 
   .process-step:last-child {
