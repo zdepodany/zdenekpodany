@@ -867,6 +867,12 @@ body {
   justify-content: center;
 }
 
+.hero--noimg .hero-cta-micro {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* ========== Metriky ========== */
 .metrics-bar {
   padding: 48px 0;
@@ -3169,41 +3175,6 @@ a.service-card {
   pointer-events: none;
 }
 
-/* CTA strip */
-.footer-cta-strip {
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  padding: 40px 24px;
-}
-
-.footer-cta-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.footer-cta-label {
-  display: block;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.95);
-  letter-spacing: -0.025em;
-  margin-bottom: 4px;
-}
-
-.footer-cta-sub {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.45);
-  margin: 0;
-}
-
-.footer-cta-btn {
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-
 /* Main footer grid */
 .footer-main {
   max-width: 1200px;
@@ -3364,17 +3335,6 @@ a.service-card {
 }
 
 @media (max-width: 600px) {
-  .footer-cta-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .footer-cta-btn {
-    width: 100%;
-    justify-content: center;
-  }
-
   .footer-main {
     grid-template-columns: 1fr;
     padding: 40px 16px 36px;
@@ -4976,6 +4936,35 @@ a.service-card {
 
 .cenik-cta-back:hover {
   color: var(--primary);
+}
+
+.cenik-cta-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-tertiary {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.btn-tertiary:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 480px) {
+  .cenik-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cenik-cta-buttons .btn {
+    width: 100%;
+  }
 }
 
 /* Responsive */
