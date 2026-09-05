@@ -17,7 +17,6 @@
         body: JSON.stringify({
           name: formData.get('name'),
           email: formData.get('email'),
-          service: formData.get('service'),
           message: formData.get('message'),
         }),
       });
@@ -25,7 +24,6 @@
       if (data.ok) {
         if (typeof window.gtag === 'function') {
           window.gtag('event', 'generate_lead', {
-            service_type: formData.get('service') || 'neuvedeno',
             method: 'contact_form',
           });
         }

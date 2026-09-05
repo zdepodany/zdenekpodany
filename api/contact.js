@@ -6,7 +6,7 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  const { name, email, service, message } = req.body || {};
+  const { name, email, message } = req.body || {};
 
   if (!name || !email || !message) {
     res.status(400).json({ error: 'Chybí povinná pole' });
@@ -19,8 +19,8 @@ module.exports = async function handler(req, res) {
     from: 'Kontaktní formulář <kontakt@zdenekpodany.cz>',
     to: 'zdenek@zdenekpodany.cz',
     replyTo: email,
-    subject: `Nová zpráva od ${name} — ${service || 'neuvedeno'}`,
-    text: `Jméno: ${name}\nEmail: ${email}\nSlužba: ${service || 'neuvedeno'}\n\nZpráva:\n${message}`,
+    subject: `Nová zpráva od ${name}`,
+    text: `Jméno: ${name}\nEmail: ${email}\n\nZpráva:\n${message}`,
   });
 
   if (error) {
