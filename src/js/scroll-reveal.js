@@ -2,7 +2,7 @@
   var selectors = [
     '.section-title', '.section-subtitle', '.service-card', '.process-step',
     '.about-layout', '.comparison-table', '.comparison-cta-button',
-    '.comparison-cta', '.showcase-cta', '.testimonials-carousel',
+    '.comparison-cta', '.testimonials-carousel',
     '.pricing-note', '.section-cta', '.value-compare-panel',
     '.faq-item', '.contact-form',
   ];
