@@ -869,6 +869,12 @@ body {
   pointer-events: none;
 }
 
+/* Podstránky služeb: hero panel v barvě karty dané služby na homepage */
+.hero--redesign { --hero-panel-gradient: linear-gradient(155deg, #2e1065 0%, #4c1d95 32%, #6d28d9 65%, #7C3AED 100%); }
+.hero--seo { --hero-panel-gradient: linear-gradient(155deg, #052e16 0%, #14532d 32%, #15803d 65%, #16A34A 100%); }
+.hero--ads { --hero-panel-gradient: linear-gradient(155deg, #431407 0%, #7c2d12 32%, #c2410c 65%, #EA580C 100%); }
+.hero--maintenance { --hero-panel-gradient: linear-gradient(155deg, #020617 0%, #0f172a 32%, #334155 65%, #475569 100%); }
+
 .hero--noimg .hero-content {
   position: relative;
   z-index: 2;
@@ -961,13 +967,33 @@ body {
 /* ========== Služby ========== */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
+}
+
+/* Bento 2+3: first row two wide featured cards, second row three narrower ones. */
+.services-grid > :nth-child(1),
+.services-grid > :nth-child(2) {
+  grid-column: span 3;
+}
+
+.services-grid > :nth-child(3),
+.services-grid > :nth-child(4),
+.services-grid > :nth-child(5) {
+  grid-column: span 2;
 }
 
 @media (max-width: 900px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-grid > :nth-child(1),
+  .services-grid > :nth-child(2),
+  .services-grid > :nth-child(3),
+  .services-grid > :nth-child(4),
+  .services-grid > :nth-child(5) {
+    grid-column: span 1;
   }
 }
 
@@ -979,11 +1005,22 @@ body {
 
 .service-card {
   display: block;
+  position: relative;
+  overflow: hidden;
   background: var(--bg);
   padding: 40px 32px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
+  --accent: var(--primary);
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.service-card > .service-icon,
+.service-card > h3,
+.service-card > p,
+.service-card > .service-card-arrow {
+  position: relative;
+  z-index: 2;
 }
 
 /* Higher specificity than .reveal so scroll-reveal.js's transition (added at runtime) can't override this.
@@ -996,10 +1033,10 @@ a.service-card {
               border-color 0.2s ease;
 }
 
-.service-card:hover {
-  border-color: rgba(0, 109, 236, 0.25);
-  box-shadow: 0 4px 20px rgba(0, 109, 236, 0.07);
-}
+.service-card--redesign { --accent: #7C3AED; }
+.service-card--seo { --accent: #16A34A; }
+.service-card--ads { --accent: #EA580C; }
+.service-card--maintenance { --accent: #475569; }
 
 .service-icon {
   display: flex;
@@ -1008,15 +1045,68 @@ a.service-card {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: var(--primary-soft);
-  color: var(--primary);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
   margin-bottom: 20px;
   flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .service-icon svg {
   width: 22px;
   height: 22px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@keyframes icon-pulse-reveal {
+  0% { transform: scale(1); opacity: 1; }
+  55% { transform: scale(2.4); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ---- Icon-grown color fill: a disc grows from the icon's spot until it
+   covers the whole card in one flat accent color; the icon itself balloons
+   and fades into it, as if it were the source of the fill. ---- */
+.service-card::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 64px;
+  left: 56px;
+  width: 60px;
+  height: 60px;
+  margin: -30px 0 0 -30px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: scale(0);
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  pointer-events: none;
+}
+
+.service-card:hover::before {
+  transform: scale(30);
+}
+
+.service-card:hover .service-icon svg {
+  animation: icon-pulse-reveal 0.65s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.service-card:hover .service-icon {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.service-card:hover h3 {
+  color: #fff;
+}
+
+.service-card:hover p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.service-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--accent) 20%, transparent);
 }
 
 .service-card h3 {
@@ -1046,9 +1136,9 @@ a.service-card {
 }
 
 .service-card:hover .service-card-arrow {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #fff;
+  background: #fff;
+  border-color: #fff;
+  color: var(--accent);
   transform: translateX(3px);
 }
 
