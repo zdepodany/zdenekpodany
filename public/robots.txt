@@ -1,5 +1,4 @@
-# Last modified: 2026-09-01
-# Site is in active development — noindex everywhere, see ROADMAP.md
-
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://zdenekpodany.cz/sitemap.xml
