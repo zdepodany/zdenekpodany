@@ -7,6 +7,18 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://zdenekpodany.cz/tvorba-webu</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://zdenekpodany.cz/predelani-webu</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://zdenekpodany.cz/tvorba-webu-znojmo</loc>
     <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -48,5 +60,5 @@
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
-  <!-- Last modified: 2026-05-23 -->
+  <!-- Last modified: 2026-08-31 -->
 </urlset>

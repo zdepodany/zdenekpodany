@@ -11,28 +11,24 @@
     submitBtn.textContent = 'Odesílám...';
 
     try {
-      var response = await fetch('/api/contact', {
+      var response = await fetch('https://server.ecms.cz/api/email-sender/6a9fef0b25602adf44844417', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        body: new URLSearchParams({
           name: formData.get('name'),
           email: formData.get('email'),
-          service: formData.get('service'),
           message: formData.get('message'),
         }),
       });
-      var data = await response.json();
-      if (data.ok) {
+      if (response.ok) {
         if (typeof window.gtag === 'function') {
           window.gtag('event', 'generate_lead', {
-            service_type: formData.get('service') || 'neuvedeno',
             method: 'contact_form',
           });
         }
         showFeedback('success', 'Zpráva byla odeslána. Děkuji, ozvu se vám co nejdříve.');
         form.reset();
       } else {
-        throw new Error(data.error || 'Chyba');
+        throw new Error('Chyba ' + response.status);
       }
     } catch (err) {
       showFeedback('error', 'Něco se pokazilo. Zkuste to prosím znovu nebo mi napište přímo na zdenek@zdenekpodany.cz.');

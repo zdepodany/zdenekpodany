@@ -58,6 +58,15 @@ Drop a new Markdown file into `content/blog/` with the same front matter shape a
 - Single file — add new rules at the relevant section rather than appending to the end
 - No Tailwind — a small manual reset at the top of `style.css` replaces Tailwind Preflight
 
+### Contact-form email provider (eCMS)
+
+The contact form (`src/partials/contact-form.html` + `src/js/contact-form.js`) posts **directly from the browser** to eCMS (`https://server.ecms.cz`), an internal Evalue tool — free to use for now, so no cost constraint on volume. It no longer goes through `api/contact.js`/Resend.
+
+- **Endpoint**: `POST https://server.ecms.cz/api/email-sender/6a9fef0b25602adf44844417` — hardcoded in `contact-form.js` (this is this site's eCMS `projectId`). Accepts an arbitrary form body (`application/x-www-form-urlencoded`, sent as `name`/`email`/`message`) and emails it to the project's `emailReceiver`. No JWT.
+- **Access control**: gated by an Origin-header allowlist on the eCMS side (not auth) — `zdenekpodany.cz` must already be registered on that eCMS project for this to work; a mismatched origin gets a `403` before the browser request completes. If the contact form starts failing, check origin registration on the eCMS project first.
+- The call must originate from the browser (not a server-side function) so the `Origin` header is the real site domain — don't route this back through a Vercel serverless function.
+- `api/contact.js` (Resend) is now unused by the live form; ask before deleting it — it may be kept as a documented fallback.
+
 ### Content language
 
 All user-facing content is in Czech (`cs-CZ`). Keep this consistent when editing copy or adding new pages.

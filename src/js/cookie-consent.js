@@ -1,8 +1,10 @@
 (function () {
+  var ANALYTICS_DISABLED = false;
   var CONSENT_KEY = 'cookie-consent';
   var GA_ID = 'G-HVYTTEV5WY';
 
   function loadGA() {
+    if (ANALYTICS_DISABLED) return;
     window.dataLayer = window.dataLayer || [];
     function gtag() { window.dataLayer.push(arguments); }
     window.gtag = gtag;
