@@ -6,9 +6,6 @@
     "build": "node scripts/build.js",
     "dev": "npm run build && npx serve dist"
   },
-  "dependencies": {
-    "resend": "^6.12.2"
-  },
   "devDependencies": {
     "gray-matter": "^4.0.3",
     "remark": "^15.0.1",
