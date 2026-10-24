@@ -4,13 +4,15 @@
   var toggle = document.getElementById('nav-toggle');
   var overlay = document.getElementById('mobile-overlay');
 
+  var maxScroll = 0;
+
+  function measure() {
+    maxScroll = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  }
+
   function updateProgress() {
     if (!progress) return;
-    var scrollTop = document.documentElement.scrollTop;
-    var scrollHeight = document.documentElement.scrollHeight;
-    var clientHeight = document.documentElement.clientHeight;
-    var max = scrollHeight - clientHeight;
-    var ratio = max > 0 ? Math.min(1, scrollTop / max) : 0;
+    var ratio = maxScroll > 0 ? Math.min(1, document.documentElement.scrollTop / maxScroll) : 0;
     progress.style.transform = 'scaleX(' + ratio + ')';
   }
 
@@ -23,6 +25,10 @@
     updateProgress();
     updateScrolled();
   }, { passive: true });
+  // Layout reads happen here, not in the scroll handler, to avoid forced reflow while scrolling.
+  measure();
+  window.addEventListener('load', function () { measure(); updateProgress(); });
+  if (window.ResizeObserver) new ResizeObserver(function () { measure(); updateProgress(); }).observe(document.body);
   updateProgress();
   updateScrolled();
 
