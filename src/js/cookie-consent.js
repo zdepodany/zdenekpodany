@@ -1,5 +1,5 @@
 (function () {
-  var ANALYTICS_DISABLED = false;
+  var ANALYTICS_DISABLED = /^(localhost|127\.0\.0\.1|\[::1\]|.*\.local)$/.test(location.hostname);
   var CONSENT_KEY = 'cookie-consent';
   var GA_ID = 'G-HVYTTEV5WY';
 
