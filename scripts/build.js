@@ -56,7 +56,6 @@ function buildStaticPages() {
       const full = path.join(dir, entry.name);
       if (entry.isDirectory()) {
         if (full === path.join(SRC_PAGES, 'blog')) continue;
-        if (full === path.join(SRC_PAGES, 'cenik')) continue;
         walk(full);
       } else if (entry.name.endsWith('.html')) {
         const rel = path.relative(SRC_PAGES, full);

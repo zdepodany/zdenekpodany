@@ -26,12 +26,12 @@ No test suite exists.
 | Path | Role |
 |---|---|
 | `src/pages/index.html` | Homepage — all main sections inline |
-| `src/pages/tvorba-webu-znojmo/index.html`, `cenik/index.html`, legal pages, `404.html` | Other static pages |
+| `src/pages/tvorba-webu-znojmo/index.html`, legal pages, `404.html` | Other static pages |
 | `src/pages/blog/index.html` | Blog listing template (`<!--BLOG_POSTS-->` placeholder) |
 | `src/pages/blog/post.html` | Per-post template (`{{TITLE}}`, `{{DESCRIPTION}}`, `<!--BLOG_CONTENT-->`, etc.) |
-| `src/partials/` | Shared header, footer (+ blog variant), cookie consent, scripts, and reusable sections (pricing, FAQ, testimonials, contact form) |
+| `src/partials/` | Shared header, footer (+ blog variant), cookie consent, scripts, and reusable sections (FAQ, testimonials, contact form) |
 | `src/css/style.css` | Single stylesheet with CSS custom properties (former `globals.css`, Tailwind directives replaced by a small manual reset) |
-| `src/js/` | Vanilla JS modules: `header.js` (nav/mobile menu/scroll progress), `scroll-reveal.js`, `cookie-consent.js`, `carousel.js`, `faq.js`, `metrics.js`, `contact-form.js`, `pricing-table.js` |
+| `src/js/` | Vanilla JS modules: `header.js` (nav/mobile menu/scroll progress), `scroll-reveal.js`, `cookie-consent.js`, `carousel.js`, `faq.js`, `metrics.js`, `contact-form.js` |
 | `scripts/build.js` | Node build script — partial includes, blog generation, static asset copy |
 | `content/blog/*.md` | Blog posts (gray-matter front matter + Markdown, converted at build time via `remark`) |
 | `api/*.js` | Vercel serverless functions: `contact.js` (Resend email), `auth.js` + `callback.js` (GitHub OAuth for the Decap CMS admin) |
@@ -74,5 +74,5 @@ All user-facing content is in Czech (`cs-CZ`). Keep this consistent when editing
 ### Notes on the Next.js → vanilla migration
 
 - Migrated from Next.js 15 (App Router, React, Framer Motion, Tailwind) to plain HTML/CSS/JS in 2026-07.
-- `BorderGlow` (canvas-based animated border on pricing cards) was dropped rather than ported — design is expected to change soon anyway.
+- `BorderGlow` (canvas-based animated border on pricing cards) was dropped rather than ported. The pricing cards and the `/cenik` page were later removed entirely (2026-10); `/cenik` only redirects to `/` via `vercel.json`. Prices are intentionally absent from the site until the new pricing policy is ready.
 - `OmneSection`, `ProcWebSection`, and `VKostceSection` previously used Framer Motion `useInView` entrance animations; they now render statically (no scroll-triggered animation) since Framer Motion was removed.

@@ -39,6 +39,6 @@ Kontaktní formulář, ceník, odpovědi na časté otázky. Zákazník si projd
 
 ## Kolik to stojí?
 
-Jednoduchý prezentační web pro živnostníka nebo malou firmu začíná **od 11 900 Kč**. Oproti marketingovým nákladům, které spousta firem vyhazuje za neefektivní reklamu, je to relativně malá investice s dlouhodobým dopadem.
+Jednoduchý prezentační web pro živnostníka nebo malou firmu je oproti marketingovým nákladům, které spousta firem vyhazuje za neefektivní reklamu, relativně malá investice s dlouhodobým dopadem.
 
 Pokud podnikáte ve Znojmě nebo okolí, podívejte se, jak [tvorba webu ve Znojmě](/tvorba-webu-znojmo) probíhá. Nebo mi rovnou [napište](/#kontakt) — rád proberu, co by měl váš web obsahovat a co vás to bude stát.
