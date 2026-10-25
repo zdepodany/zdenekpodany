@@ -3,7 +3,7 @@ title: Každý malý řemeslník by měl mít svůj web
 description: Malé zamyšlení nad tím jak to dnes je s online přítomnosti menších
   firem a živnostníků.
 date: 2026-06-28
-image: /img/showcase-jmont.webp
+image: /img/ukazky/jmont.webp
 tags:
   - blog
   - web

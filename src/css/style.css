@@ -3847,7 +3847,7 @@ a.service-card {
    ============================================================ */
 
 .blog-post {
-  padding: 48px 0 96px;
+  padding: calc(var(--header-h) + 32px) 0 96px;
 }
 
 .blog-post-container {
@@ -3981,6 +3981,30 @@ a.service-card {
   .blog-post-body a:hover {
     opacity: 0.75;
   }
+}
+
+.blog-post-body p:has(> img) {
+  margin: 2em 0;
+}
+
+.blog-post-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.blog-post-body img[src$="hotelzetocha-mobil.webp"] {
+  width: 45%;
+  min-width: 200px;
+}
+
+.blog-post-body img + em {
+  display: block;
+  font-size: 0.875rem;
+  font-style: normal;
+  color: var(--text-muted);
 }
 
 .blog-post-body strong {
@@ -4138,7 +4162,7 @@ a.service-card {
 /* Responsive */
 @media (max-width: 640px) {
   .blog-post {
-    padding: 32px 0 72px;
+    padding: calc(var(--header-h) + 20px) 0 72px;
   }
 
   .blog-post-container {

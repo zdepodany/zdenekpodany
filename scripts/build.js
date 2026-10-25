@@ -128,7 +128,10 @@ async function buildBlog() {
 
   for (const post of posts) {
     const processed = await remark().use(html).process(post.content);
-    const contentHtml = processed.toString();
+    // Externí odkazy v článku se otevírají v novém tabu
+    const contentHtml = processed
+      .toString()
+      .replace(/<a href="(https?:\/\/[^"]+)"/g, '<a href="$1" target="_blank" rel="noopener"');
     const tags = post.tags.map((t) => `<span class="blog-post-tag">${t}</span>`).join('');
     const hero = post.image
       ? `<div class="blog-post-hero"><img src="${post.image}" alt="${post.title}" loading="eager" /></div>`
