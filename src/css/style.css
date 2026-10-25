@@ -3500,6 +3500,40 @@ a.service-card {
   margin: 0;
 }
 
+.footer-legal {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+}
+
+.footer-legal a,
+.footer-cookie-settings {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.35);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.footer-cookie-settings {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-legal a:hover,
+  .footer-cookie-settings:hover {
+    color: rgba(255,255,255,0.8);
+  }
+}
+
 .footer-tagline {
   font-size: 0.8rem;
   color: rgba(255,255,255,0.2);

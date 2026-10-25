@@ -36,8 +36,15 @@
     });
 
     if (rejectBtn) rejectBtn.addEventListener('click', function () {
+      var wasAccepted = localStorage.getItem(CONSENT_KEY) === 'accepted';
       localStorage.setItem(CONSENT_KEY, 'rejected');
       banner.hidden = true;
+      // GA už je načtená v této stránce, pro odpojení je potřeba reload
+      if (wasAccepted) location.reload();
+    });
+
+    document.querySelectorAll('[data-cookie-settings]').forEach(function (el) {
+      el.addEventListener('click', function () { banner.hidden = false; });
     });
   }
 })();
