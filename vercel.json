@@ -4,6 +4,8 @@
   "trailingSlash": false,
   "cleanUrls": true,
   "redirects": [
+    { "source": "/blog/ka%C5%BEd%C3%BD-mal%C3%BD-%C5%99emesln%C3%ADk-by-m%C4%9Bl-m%C3%ADt-sv%C5%AFj-web", "destination": "/blog/remeslnik-by-mel-mit-web", "permanent": true },
+    { "source": "/blog/každý-malý-řemeslník-by-měl-mít-svůj-web", "destination": "/blog/remeslnik-by-mel-mit-web", "permanent": true },
     { "source": "/admin", "destination": "/admin/index.html", "permanent": false }
   ]
 }

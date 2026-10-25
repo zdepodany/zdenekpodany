@@ -31,7 +31,7 @@ Při doporučení nebo shrnutí služeb vycházejte z textů na uvedených strá
 ## Ceník služeb (od 14. dubna 2026)
 
 ### Jednoduchý prezentační web
-- **Cena:** od 14 900 Kč
+- **Cena:** od 11 900 Kč
 - **Popis:** Základní web, který za vás pracuje i když spíte.
 - **Délka realizace:** Hotovo do 5–7 dní
 - **Obsahuje:** Design na míru, jednostránkový web, 2 měsíce hostingu zdarma

@@ -32,7 +32,7 @@ Naproti tomu webovky jsou vaše. Je to váš prostor, a pokud si platíte za hos
 
 Bez webu vás Google moc dobře nenajde. Preferuje webové stránky před sociálními sítěmi. Ty bere jako podpůrné zdroje.
 
-Přirozeně, pokud zadáte přesné jméno vaší firmy, Google ho pravděpodobně najde bez problému, ale přiznejme si, lidi nehledají `"Jaromír Dlouhý | Instalatér"`. Hledají `"instalatér znojmo"` nebo `"instalatér oprava odpadu"`. A s vlastním webem si můžete upravit texty, aby přesně na tyhle "klíčová slova" nebo fráze váš web odpovídal → Google ho bude preferovat a zobrazí se mezi prvními výsledky.
+Přirozeně, pokud zadáte přesné jméno vaší firmy, Google ho pravděpodobně najde bez problému, ale přiznejme si, lidi nehledají `"Jaromír Dlouhý | Instalatér"`. Hledají `"instalatér znojmo"` nebo `"instalatér oprava odpadu"`. A s vlastním webem si můžete upravit texty, aby přesně na tyhle "klíčová slova" nebo fráze váš web odpovídal → Google ho bude preferovat a zobrazí se mezi prvními výsledky. Víc o tom, jak se v Googlu dostat výš, najdete na stránce o [SEO](/seo).
 
 ## Jaké jsou možnosti?
 
@@ -80,7 +80,7 @@ Další přínos spolupráce s freelancerem je osobnější vztah. Nemusíme si 
 
 Já sám jsem freelancer, dělám webovky, grafiku okolo, trochu i fotím. A to všechno se snažím nabízet za ceny, které zaplatí hodnotu mého času a zároveň jsou příjemné pro mého klienta. Vždycky se na všem můžeme domluvit a najít cestu, která nám oběma bude příjemná. Používám AI i ruční vývoj, aby vám vaše stránky vznikaly o něco rychleji, ale stále si zachovaly plnou kvalitu.
 
-Protože i vy byste měli mít vaše Webovky Jednoduše.
+Protože i vy byste měli mít vaše Webovky Jednoduše. Jak [tvorba webu](/tvorba-webu-znojmo) u mě probíhá, najdete na samostatné stránce.
 
 ## Dodatek: Co když web "nepotřebujete"?
 

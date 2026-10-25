@@ -25,7 +25,7 @@ Web je váš vlastní prostor. Nikdo vám ho nemůže vzít. Funguje 24 hodin de
 
 Když někdo v Znojmě nebo okolí hledá „elektrikář Znojmo" nebo „zahradnictví Pohořelice", Google mu zobrazí weby. Ne Facebook profily.
 
-Bez webu prostě nejste v těchto výsledcích. Zákazník, který aktivně hledá vaši službu, vás nenajde — i když jste nejlepší v oboru.
+Bez webu prostě nejste v těchto výsledcích. Zákazník, který aktivně hledá vaši službu, vás nenajde — i když jste nejlepší v oboru. Jak to funguje a co se dá udělat pro lepší pozice, popisuju na stránce o [SEO pro malé firmy](/seo).
 
 ## Profesionální dojem na první pohled
 
@@ -39,6 +39,6 @@ Kontaktní formulář, ceník, odpovědi na časté otázky. Zákazník si projd
 
 ## Kolik to stojí?
 
-Jednoduchý prezentační web pro živnostníka nebo malou firmu začíná **od 14 900 Kč**. Oproti marketingovým nákladům, které spousta firem vyhazuje za neefektivní reklamu, je to relativně malá investice s dlouhodobým dopadem.
+Jednoduchý prezentační web pro živnostníka nebo malou firmu začíná **od 11 900 Kč**. Oproti marketingovým nákladům, které spousta firem vyhazuje za neefektivní reklamu, je to relativně malá investice s dlouhodobým dopadem.
 
-Pokud vás téma zajímá, [napište mi](/#kontakt) — rád proberu, co by měl váš web obsahovat a co vás to bude stát.
+Pokud podnikáte ve Znojmě nebo okolí, podívejte se, jak [tvorba webu ve Znojmě](/tvorba-webu-znojmo) probíhá. Nebo mi rovnou [napište](/#kontakt) — rád proberu, co by měl váš web obsahovat a co vás to bude stát.

@@ -49,7 +49,7 @@ Na WordPressu se SEO řeší pluginem — nejčastěji Yoast nebo RankMath. To j
 
 Web na míru má správnou strukturu od první řádky kódu. Čisté nadpisy, rychlé načítání, správné meta tagy, schéma dat — vše je součástí stavby, ne záplata přilepená na konec.
 
-SEO pak funguje přirozeněji a efektivněji, protože Google čte kód který mu nemusí nic skrývat.
+SEO pak funguje přirozeněji a efektivněji, protože Google čte kód který mu nemusí nic skrývat. Pokud chcete jít dál než k základům, podívejte se na [SEO a GEO optimalizaci](/seo).
 
 ## 6. Vaše svoboda, váš web
 
@@ -65,4 +65,4 @@ Ne. Pro blog, e-shop nebo rozsáhlý firemní portál může být WordPress spr�
 
 Ale pro živnostníka nebo malou firmu, která potřebuje přehledný prezentační web jenž přivádí zákazníky — web na míru je jednoduše lepší volba. Rychlejší, bezpečnější, levnější na provoz a postavený přesně pro vás.
 
-Pokud vás zajímá, jak by takový web vypadal pro vaše podnikání, [napište mi](/#kontakt) — rád proberu konkrétní možnosti a co vás to bude stát.
+Pokud web teprve potřebujete, [postavím vám nový web na míru](/tvorba-webu). Máte už WordPress, který nefunguje? Podívejte se na [předělání webu](/predelani-webu). Nebo mi rovnou [napište](/#kontakt) — rád proberu konkrétní možnosti a co vás to bude stát.
