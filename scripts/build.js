@@ -149,6 +149,14 @@ async function buildBlog() {
       .replace('<!--BLOG_CONTENT-->', contentHtml);
 
     pageHtml = applyIncludes(pageHtml);
+    // Titulní fotka článku nahradí výchozí og:image / twitter:image
+    if (post.image) {
+      const ogImage = post.image.startsWith('http') ? post.image : `https://zdenekpodany.cz${post.image}`;
+      pageHtml = pageHtml.replace(
+        /(<meta (?:property="og:image"|name="twitter:image") content=")[^"]*(")/g,
+        `$1${ogImage}$2`
+      );
+    }
     writeFile(path.join(DIST, `blog/${post.slug}/index.html`), pageHtml);
   }
 }
