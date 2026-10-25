@@ -4159,6 +4159,18 @@ a.service-card {
   border-top: 1px solid var(--border);
 }
 
+/* Contact form */
+.blog-post-contact {
+  margin-top: 72px;
+  padding-top: 56px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.blog-post-contact .contact-form {
+  text-align: left;
+}
+
 /* Responsive */
 @media (max-width: 640px) {
   .blog-post {
